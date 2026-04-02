@@ -1,0 +1,25 @@
+:root {
+    --tone1: #F9F7F3;
+    --tone2: #D1BEB0;
+    --tone3: #a0908e;
+    --tone4: #3C4F76;
+    --tone5: #383F51;
+
+    --color-A: var(--tone1);
+    --color-B: var(--tone2);
+    --color-C: var(--tone3);
+    --color-D: var(--tone4);
+    --color-E: var(--tone5);
+    --opacity: 34%;
+
+    @media (prefers-color-scheme: dark) {
+        --color-A: var(--tone5);
+        --color-B: var(--tone4);
+        --color-D: var(--tone2);
+        --color-E: var(--tone1);
+        --opacity: 89%;
+    }
+
+    --np: 1.618rem;
+    --mp: 0.618rem;
+}

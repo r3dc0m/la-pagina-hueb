@@ -1,3 +1,42 @@
-* {
+@import url("variables.css");
+
+html {
+    height: 100%;
+    font-size: 100%;
+    overflow-y: scroll;
     font-family: "Segoe UI", "Helvetica Neue", sans-serif;
+    color: var(--color-D);
+}
+
+body {
+    min-height: 100vh;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    background-color: var(--color-A);
+}
+
+header {
+    display: flex;
+    justify-content: center;
+    nav {
+
+    }
+}
+
+main {
+
+}
+
+footer {
+    display: flex;
+    justify-content: center;
+    background: var(--color-B);
+    padding: var(--mp);
+    margin-top: auto;
+    a {
+        flex-direction: column;
+        margin: var(--mp) var(--np);
+        white-space: nowrap;
+    }
 }
