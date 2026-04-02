@@ -15,19 +15,19 @@ export default class App {
         const navBlockRight = build("div", null, null, this.nav, { className: 'nav-right' });
 
         this.navButtonHome = build("button", null, "navButtonHome", navBlockLeft);
-        this.navButtonHomeIcon = build("svg", null, null, this.navButtonHome, { name: 'fullEgg', size: 24, color: 'var(--color-E)' });
+        this.navButtonHomeIcon = build("svg", null, null, this.navButtonHome, { name: 'fullEgg' });
 
         this.navButtonModA = build("button", null, "navButtonModA", navBlockCenter);
-        this.navButtonModAIcon = build("svg", null, null, this.navButtonModA, { name: 'basket', size: 24, color: 'var(--color-E)' });
+        this.navButtonModAIcon = build("svg", null, null, this.navButtonModA, { name: 'basket' });
 
         this.navButtonModB = build("button", null, "navButtonModB", navBlockCenter);
-        this.navButtonModAIcon = build("svg", null, null, this.navButtonModB, { name: 'bird', size: 24, color: 'var(--color-E)' });
+        this.navButtonModAIcon = build("svg", null, null, this.navButtonModB, { name: 'bird' });
 
         this.navButtonModC = build("button", null, "navButtonModC", navBlockCenter);
-        this.navButtonModCIcon = build("svg", null, null, this.navButtonModC, { name: 'tractor', size: 24, color: 'var(--color-E)' });
+        this.navButtonModCIcon = build("svg", null, null, this.navButtonModC, { name: 'tractor' });
 
         this.navButtonUser = build("button", null, "navButtonUser", navBlockRight);
-        this.navButtonUserIcon = build("svg", null, null, this.navButtonUser, { name: 'user', size: 24, color: 'var(--color-E)' });
+        this.navButtonUserIcon = build("svg", null, null, this.navButtonUser, { name: 'user' });
 
         this.h1 = build("h1", "La página Hueb", "title", this.header);
 

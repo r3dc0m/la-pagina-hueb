@@ -27,13 +27,14 @@ header {
 
     nav {
         display: flex;
-        align-content: space-between;
         background: var(--color-B);
         padding: var(--mp);
         margin-top: auto;
-        flex-wrap: wrap;
+        flex-wrap: nowrap;
         flex-direction: row;
         justify-content: space-between;
+        align-items: center;
+        text-align: center;
 
         button {
             background: none;
@@ -41,15 +42,11 @@ header {
             display: inline-flex;
         }
 
-        a {
-
-        }
+        a {}
     }
 }
 
-main {
-
-}
+main {}
 
 footer {
     display: flex;
