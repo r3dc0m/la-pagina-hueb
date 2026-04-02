@@ -18,15 +18,22 @@ body {
 
 header {
     display: flex;
-    justify-content: center;
-    nav {
+    flex-direction: column;
 
+    nav {
+        background: var(--color-B);
+        padding: var(--mp);
+        margin-top: auto;
+
+        a {
+            flex-direction: column;
+            margin: var(--mp) var(--np);
+            white-space: nowrap;
+        }
     }
 }
 
-main {
-
-}
+main {}
 
 footer {
     display: flex;
@@ -34,6 +41,7 @@ footer {
     background: var(--color-B);
     padding: var(--mp);
     margin-top: auto;
+
     a {
         flex-direction: column;
         margin: var(--mp) var(--np);
