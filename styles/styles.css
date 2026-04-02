@@ -19,7 +19,7 @@ body {
 header {
     display: flex;
     flex-direction: column;
-    
+
     h1 {
         align-self: center;
         text-align: center;
@@ -33,7 +33,7 @@ header {
         margin-top: auto;
         flex-wrap: wrap;
         flex-direction: row;
-        justify-content: center;
+        justify-content: space-between;
 
         button {
             background: none;
@@ -42,9 +42,7 @@ header {
         }
 
         a {
-            flex-direction: column;
-            margin: var(--mp) var(--np);
-            white-space: nowrap;
+
         }
     }
 }

@@ -13,7 +13,6 @@ export function createSvgIcon(name, size = 24, parent, color) {
     svg.setAttribute('viewBox', icon.viewBox);
     svg.setAttribute('width', size);
     svg.setAttribute('height', size);
-    svg.style.display = 'inline-block';
 
     const path = createSvg('path');
     path.setAttribute('d', icon.path);
@@ -25,7 +24,7 @@ export function createSvgIcon(name, size = 24, parent, color) {
     return svg;
 }
 
-export const build = (tag, text = null, id, parent, options) => {
+export const build = (tag, text = null, id, parent, options = {}) => {
     if (!parent || !parent.appendChild) {
         throw new Error("parent must be a valid node!");
     }
@@ -38,6 +37,12 @@ export const build = (tag, text = null, id, parent, options) => {
     element.textContent = text;
     if (text !== undefined) element.textContent = text;
     if (id) element.id = id;
+    if (options.className) element.className = options.className;
+    if (options.attrs) {
+        Object.entries(options.attrs).forEach(([key, value]) => {
+            element.setAttribute(key, value);
+        });
+    }
     parent.appendChild(element);
     return element
 }
