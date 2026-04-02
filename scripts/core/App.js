@@ -11,8 +11,11 @@ export default class App {
         this.header = build("header", "", "header", body);
         this.nav = build("nav", null, "nav", this.header);
         this.navButton1 = build("button", null, "navButton1", this.nav);
-        this.navButton1ico = build("svg",null,null,this.navButton1, {name:'fullEgg',size:24, color: 'var(--color-A)'} );
-//        createSvgIcon('fullEgg', 24, this.navButton1, "var(--color-A)")
+        this.navButton1ico = build("svg", null, null, this.navButton1, { name: 'fullEgg', size: 24, color: 'var(--color-E)' });
+
+        this.navButton2 = build("button", null, "navButton2", this.nav);
+        this.navButton2ico = build("svg", null, null, this.navButton2, { name: 'friedEgg', size: 24, color: 'var(--color-E)' });
+
 
         this.h1 = build("h1", "La página Hueb", "title", this.header);
 
