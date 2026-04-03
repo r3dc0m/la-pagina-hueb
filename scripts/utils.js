@@ -5,7 +5,7 @@ export const print = (i) => console.log(i);
 const SVG_NS = 'http://www.w3.org/2000/svg';
 const createSvg = (tag) => document.createElementNS(SVG_NS, tag);
 
-export function createSvgIcon(name, size = 24, parent, color) {
+export function createSvgIcon(name, size = 24, parent) {
     const icon = icons[name];
     if (!icon) throw new Error(`icon ${name} not found!`);
 
@@ -16,7 +16,7 @@ export function createSvgIcon(name, size = 24, parent, color) {
 
     const path = createSvg('path');
     path.setAttribute('d', icon.path);
-    path.setAttribute('fill', color);
+    path.setAttribute('fill', 'currentColor');
 
     svg.appendChild(path);
     parent.appendChild(svg);
@@ -32,7 +32,7 @@ export const build = (tag, text = null, id, parent, options = {}) => {
     const element = document.createElement(tag);
 
     if (id) element.id = id;
-    
+
     if (options.className) element.className = options.className;
 
     if (options.attrs) {
@@ -48,7 +48,13 @@ export const build = (tag, text = null, id, parent, options = {}) => {
     parent.appendChild(element);
 
     if (tag === 'button' && options?.name) {
-        createSvgIcon(options.name, options.size || 24, element, options.color || 'var(--color-E)');
+        createSvgIcon(options.name, options.size || 24, element);
+        if (options?.label) {
+            const label = document.createElement('span');
+            label.textContent = options.label;
+            label.className = 'nav-button-label';
+            element.appendChild(label);
+        }
     }
 
     return element

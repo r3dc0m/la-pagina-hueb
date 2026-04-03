@@ -14,7 +14,7 @@ export default class App {
         const navBlockCenter = build("div", null, null, this.nav, { className: 'nav-center' });
         const navBlockRight = build("div", null, null, this.nav, { className: 'nav-right' });
 
-        this.navButtonHome = build("button", null, "navButtonHome", navBlockLeft, { className: 'nav-buttons', name: 'fullEgg' });
+        this.navButtonHome = build("button", null, "navButtonHome", navBlockLeft, { className: 'nav-buttons', name: 'fullEgg' , label: 'Inicio'});
 
         this.navButtonModA = build("button", null, "navButtonModA", navBlockCenter, { className: 'nav-buttons', name: 'basket' });
         this.navButtonModB = build("button", null, "navButtonModB", navBlockCenter, { className: 'nav-buttons', name: 'bird' });

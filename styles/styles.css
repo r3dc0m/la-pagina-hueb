@@ -39,6 +39,23 @@ header {
             background: none;
             border: none;
             display: inline-flex;
+            flex-direction: column;
+            align-items: center;
+            color: var(--color-E);
+            transition: color 0.2s ease, transform 0.2s ease;
+
+            .nav-button-label {
+                display: none;
+            }
+        }
+
+        .nav-buttons:hover {
+            color: var(--color-D);
+            transform: scale(1.1);
+
+            .nav-button-label {
+                display: inline-block;
+            }
         }
 
         a {}
