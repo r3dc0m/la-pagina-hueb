@@ -115,3 +115,21 @@ created: 2026-04-03
 due: 
 
 Anchor on target blank to random website.
+
+## Design: min-width to HTML
+id: task-1775233916010-fa3b80a2
+status: done
+priority: low
+created: 2026-04-03
+due: 2026-04-03
+
+Set to 140px to prevent shrink below this number even though there might not be any device that thin.
+
+## Nav: Create Pages & Router class
+id: task-1775234008686-3dc8b1d5
+status: in-progress
+priority: high
+created: 2026-04-03
+due: 2026-04-04
+
+Adding dummy pages and define navigation logic with Router class.

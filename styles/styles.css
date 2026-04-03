@@ -5,7 +5,8 @@ html {
     height: 100%;
     font-size: 100%;
     overflow-y: scroll;
-     overflow-x: hidden;
+    overflow-x: hidden;
+    min-width: 140px;
     font-family: 'Funnel Sans', 'Segoe UI', 'Helvetica Neue', sans-serif;
     color: var(--color-D);
 }
@@ -42,7 +43,8 @@ header {
         justify-content: space-between;
         align-items: center;
         text-align: center;
-        width: 100; /* hmm */
+        width: 100;
+        /* hmm */
 
         .nav-buttons {
             background: none;
