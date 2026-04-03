@@ -18,7 +18,6 @@ export class Router {
     }
 
     async navigate(route) {
-        if (this.currentRoute === route) return;
         this.currentRoute = route;
 
         const page = Pages[route];

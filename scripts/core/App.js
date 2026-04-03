@@ -12,6 +12,7 @@ export default class App {
         const navBar = build("nav", null, null, this.header, { className: 'nav-bar' });
         new NavBuilder(navBar);
         this.nav = navBar;
+        
         this.h1 = build("h1", "La página Hueb", "title", this.header);
 
         this.main = build("main", null, "main", this.body);
