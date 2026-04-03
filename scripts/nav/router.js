@@ -1,10 +1,38 @@
 import { Pages } from './pages.js';
-import { build } from '../utils.js';
 
 export class Router {
-    constructor() {
-
+    constructor(nav, content) {
+        this.nav = nav;
+        this.content = content;
+        this.currentRoute = 'home';
+        this.init();
     }
 
+    init() {
+        this.nav.querySelectorAll('[data-route]').forEach(btn => {
+            btn.addEventListener('click', () => {
+                this.navigate(btn.dataset.route);
+            })
+        })
+        this.navigate('home');
+    }
 
+    async navigate(route) {
+        if (this.currentRoute === route) return;
+        this.currentRoute = route;
+
+        const page = Pages[route];
+        if (!page) {
+            this.content.innerHTML = '<p>404</p>';
+            return;
+        }
+
+        this.content.innerHTML = '';
+        page.render(this.content);
+
+        // active class
+        document.querySelectorAll('.nav-buttons').forEach(b =>
+            b.classList.toggle('active', b.dataset.route === route)
+        );
+    }
 }
