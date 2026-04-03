@@ -1,10 +1,11 @@
-@import url("variables.css");
+@import url('variables.css');
+@import url('https://fonts.googleapis.com/css2?family=Funnel+Sans:ital,wght@0,300..800;1,300..800&display=swap');
 
 html {
     height: 100%;
     font-size: 100%;
     overflow-y: scroll;
-    font-family: "Segoe UI", "Helvetica Neue", sans-serif;
+    font-family: 'Funnel Sans', 'Segoe UI', 'Helvetica Neue', sans-serif;
     color: var(--color-D);
 }
 
