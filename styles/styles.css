@@ -5,6 +5,7 @@ html {
     height: 100%;
     font-size: 100%;
     overflow-y: scroll;
+     overflow-x: hidden;
     font-family: 'Funnel Sans', 'Segoe UI', 'Helvetica Neue', sans-serif;
     color: var(--color-D);
 }
@@ -14,6 +15,7 @@ body {
     margin: 0;
     display: flex;
     flex-direction: column;
+    flex-shrink: 1;
     background-color: var(--color-A);
 }
 
@@ -25,8 +27,8 @@ header {
         align-self: center;
         text-align: center;
         margin: 0;
-        padding: var(--mp);
-        width: 100vw;
+        padding: var(--mp) 0;
+        width: 100%;
         color: var(--color-B);
         background-color: var(--color-D);
     }
@@ -40,6 +42,7 @@ header {
         justify-content: space-between;
         align-items: center;
         text-align: center;
+        width: 100; /* hmm */
 
         .nav-buttons {
             background: none;
@@ -68,13 +71,14 @@ header {
     }
 }
 
-/* main {} */
+main {
+    flex: 1;
+}
 
 footer {
     display: flex;
     justify-content: center;
     background: var(--color-B);
-    padding: var(--mp);
     margin-top: auto;
 
     p {
