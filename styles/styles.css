@@ -24,6 +24,7 @@ header {
     h1 {
         align-self: center;
         text-align: center;
+        margin: 0;
     }
 
     .nav-bar {
@@ -42,7 +43,7 @@ header {
             display: inline-flex;
             flex-direction: column;
             align-items: center;
-            color: var(--color-E);
+            color: var(--color-D);
             transition: color 0.2s ease, transform 0.2s ease;
 
             .nav-button-label {
@@ -51,19 +52,19 @@ header {
         }
 
         .nav-buttons:hover {
-            color: var(--color-D);
+            color: var(--color-E);
             transform: scale(1.1);
 
-            .nav-button-label {
-                display: inline-block;
-            }
+            /* .nav-button-label {
+                 display: inline-block; media query 
+            } */
         }
 
-        a {}
+        /* a {} */
     }
 }
 
-main {}
+/* main {} */
 
 footer {
     display: flex;

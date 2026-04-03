@@ -1,9 +1,8 @@
-import { icons } from './icons.js';
+import { icons } from './content/icons.js';
 
 export const print = (i) => console.log(i);
 
-const SVG_NS = 'http://www.w3.org/2000/svg';
-const createSvg = (tag) => document.createElementNS(SVG_NS, tag);
+const createSvg = (tag) => document.createElementNS('http://www.w3.org/2000/svg', tag);
 
 export function createSvgIcon(name, size = 24, parent) {
     const icon = icons[name];

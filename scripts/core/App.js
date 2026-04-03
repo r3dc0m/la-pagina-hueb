@@ -1,4 +1,5 @@
-import { build } from "../utils.js";
+import { build,print} from "../utils.js";
+import { NavBuilder } from "../nav/navBuilder.js";
 
 
 export default class App {
@@ -9,19 +10,10 @@ export default class App {
         const body = document.body;
 
         this.header = build("header", "", "header", body);
-        this.nav = build("nav", null, null, this.header, { className: 'nav-bar' });
-        const navBlockLeft = build("div", null, null, this.nav, { className: 'nav-left' });
-        const navBlockCenter = build("div", null, null, this.nav, { className: 'nav-center' });
-        const navBlockRight = build("div", null, null, this.nav, { className: 'nav-right' });
-
-        this.navButtonHome = build("button", null, "navButtonHome", navBlockLeft, { className: 'nav-buttons', name: 'fullEgg' , label: 'Inicio'});
-
-        this.navButtonModA = build("button", null, "navButtonModA", navBlockCenter, { className: 'nav-buttons', name: 'basket' });
-        this.navButtonModB = build("button", null, "navButtonModB", navBlockCenter, { className: 'nav-buttons', name: 'bird' });
-        this.navButtonModC = build("button", null, "navButtonModC", navBlockCenter, { className: 'nav-buttons', name: 'tractor' });
-
-        this.navButtonUser = build("button", null, "navButtonUser", navBlockRight, { className: 'nav-buttons', name: 'user' });
-
+        const navBar = build("nav", null, null, this.header, { className: 'nav-bar' });
+        this.navBuilder = new NavBuilder(navBar);
+        print(this.navBuilder.navBlockLeft)
+        this.nav = this.navBuilder.nav;
 
         this.h1 = build("h1", "La página Hueb", "title", this.header);
 
