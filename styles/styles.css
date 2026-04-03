@@ -21,10 +21,14 @@ header {
     display: flex;
     flex-direction: column;
 
-    h1 {
+    #title {
         align-self: center;
         text-align: center;
         margin: 0;
+        padding: var(--mp);
+        width: 100vw;
+        color: var(--color-B);
+        background-color: var(--color-D);
     }
 
     .nav-bar {
