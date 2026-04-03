@@ -29,7 +29,7 @@ export const build = (tag, text = null, id, parent, options = {}) => {
         throw new Error("parent must be a valid node!");
     }
 
-    if (tag === 'svg') {
+    if (tag === 'button' && options?.name) {
         return createSvgIcon(options.name, options.size || 24, parent, options.color || 'var(--color-E)');
     }
 
