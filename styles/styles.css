@@ -25,18 +25,17 @@ header {
         text-align: center;
     }
 
-    nav {
+    .nav-bar {
         display: flex;
         background: var(--color-B);
         padding: var(--mp);
-        margin-top: auto;
         flex-wrap: nowrap;
         flex-direction: row;
         justify-content: space-between;
         align-items: center;
         text-align: center;
 
-        button {
+        .nav-buttons {
             background: none;
             border: none;
             display: inline-flex;

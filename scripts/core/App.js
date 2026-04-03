@@ -14,13 +14,13 @@ export default class App {
         const navBlockCenter = build("div", null, null, this.nav, { className: 'nav-center' });
         const navBlockRight = build("div", null, null, this.nav, { className: 'nav-right' });
 
-        this.navButtonHome = build("button", null, "navButtonHome", navBlockLeft, { name: 'fullEgg' });
+        this.navButtonHome = build("button", null, "navButtonHome", navBlockLeft, { className: 'nav-buttons', name: 'fullEgg' });
 
-        this.navButtonModA = build("button", null, "navButtonModA", navBlockCenter, { name: 'basket' });
-        this.navButtonModB = build("button", null, "navButtonModB", navBlockCenter, { name: 'bird' });
-        this.navButtonModC = build("button", null, "navButtonModC", navBlockCenter, { name: 'tractor' });
+        this.navButtonModA = build("button", null, "navButtonModA", navBlockCenter, { className: 'nav-buttons', name: 'basket' });
+        this.navButtonModB = build("button", null, "navButtonModB", navBlockCenter, { className: 'nav-buttons', name: 'bird' });
+        this.navButtonModC = build("button", null, "navButtonModC", navBlockCenter, { className: 'nav-buttons', name: 'tractor' });
 
-        this.navButtonUser = build("button", null, "navButtonUser", navBlockRight, { name: 'user' });
+        this.navButtonUser = build("button", null, "navButtonUser", navBlockRight, { className: 'nav-buttons', name: 'user' });
 
 
         this.h1 = build("h1", "La página Hueb", "title", this.header);

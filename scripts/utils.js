@@ -30,7 +30,7 @@ export const build = (tag, text = null, id, parent, options = {}) => {
     }
 
     if (tag === 'button' && options?.name) {
-        return createSvgIcon(options.name, options.size || 24, parent, options.color || 'var(--color-E)');
+        createSvgIcon(options.name, options.size || 24, parent, options.color || 'var(--color-E)');
     }
 
     const element = document.createElement(tag);
