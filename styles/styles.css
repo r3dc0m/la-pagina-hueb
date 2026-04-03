@@ -7,6 +7,7 @@ html {
     overflow-y: scroll;
     overflow-x: hidden;
     min-width: 140px;
+    min-height: 233px;
     font-family: 'Funnel Sans', 'Segoe UI', 'Helvetica Neue', sans-serif;
     color: var(--color-D);
 }
@@ -75,6 +76,9 @@ header {
 
 main {
     flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 footer {
