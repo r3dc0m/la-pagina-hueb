@@ -20,10 +20,10 @@ due:
 
 ## Design: Make animated buttons
 id: task-1775181478763-437da222
-status: todo
-priority: medium
+status: in-progress
+priority: low
 created: 2026-04-03
-due: 
+due: 2026-04-03
 
 ## Design: Add feedback cards
 id: task-1775181541770-603bff97
@@ -39,6 +39,14 @@ created: 2026-04-03
 
 ## Design: Add assets
 id: task-1775181670883-3d3248f9
-status: in-progress
-priority: medium
+status: done
+priority: low
 created: 2026-04-03
+due: 2026-04-03
+
+## Utils: build DOM with function & SVG filler.
+id: task-1775185539734-e45a1856
+status: done
+priority: high
+created: 2026-04-03
+due: 2026-04-02

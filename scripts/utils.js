@@ -29,20 +29,27 @@ export const build = (tag, text = null, id, parent, options = {}) => {
         throw new Error("parent must be a valid node!");
     }
 
-    if (tag === 'button' && options?.name) {
-        createSvgIcon(options.name, options.size || 24, parent, options.color || 'var(--color-E)');
-    }
-
     const element = document.createElement(tag);
-    element.textContent = text;
-    if (text !== undefined) element.textContent = text;
+
     if (id) element.id = id;
+    
     if (options.className) element.className = options.className;
+
     if (options.attrs) {
         Object.entries(options.attrs).forEach(([key, value]) => {
             element.setAttribute(key, value);
         });
     }
+
+    if (text !== undefined && text !== null) {
+        element.textContent = text;
+    }
+
     parent.appendChild(element);
+
+    if (tag === 'button' && options?.name) {
+        createSvgIcon(options.name, options.size || 24, element, options.color || 'var(--color-E)');
+    }
+
     return element
 }
