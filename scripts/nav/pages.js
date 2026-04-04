@@ -1,5 +1,5 @@
 import { build } from '../utils.js';
-import { login, register } from '../auth/authService.js';
+import { login, register, getCurrentUser, logout } from '../auth/authService.js';
 
 export const Pages = {
     home: {
@@ -57,55 +57,69 @@ export const Pages = {
         icon: 'user',
         block: 'right',
         render(content, router) {
-            content.innerHTML = `
-            <section>
-                <div class="auth-tabs">
-                    <button class="auth-tab active" data-mode="login">Iniciar sesión</button>
-                    <button class="auth-tab" data-mode="register">Crear cuenta</button>
-                </div>
-                <form id="auth-form" class="login-mode">
-                    <input type="text" id="username" placeholder="Usuario" required autocomplete="username">
-                    <input type="password" id="password" placeholder="Contraseña" required autocomplete="current-password">
-                    <button type="submit" class="auth-submit">Entrar</button>
-                </form>
-                <p class="auth-status"></p>
-            </section>`;
-
-            const form = content.querySelector('#auth-form');
-            const username = content.querySelector('#username');
-            const password = content.querySelector('#password');
-            const submit = content.querySelector('.auth-submit');
-            const tabs = content.querySelectorAll('.auth-tab');
-            const status = content.querySelector('.auth-status');
-
-            const switchMode = (mode) => {
-                form.classList.toggle('login-mode', mode === 'login');
-                form.classList.toggle('register-mode', mode === 'register');
-                submit.textContent = mode === 'login' ? 'Entrar' : 'Crear cuenta';
-                tabs.forEach(tab => {
-                    tab.classList.toggle('active', tab.dataset.mode === mode);
+            const currentUser = getCurrentUser();
+            if (currentUser) {
+                content.innerHTML = `
+                <section id="auth">
+                    <p class="auth-text">No sé quién eres, ${currentUser.username}.</p>
+                    <button class="auth-button">Desconectar, por favor.</button>
+                </section>`;
+                const logoutBtn = content.querySelector('.auth-button');
+                logoutBtn.addEventListener('click', () => {
+                    logout();
+                    router.navigate('user');
                 });
-            };
+            } else {
+                content.innerHTML = `
+                <section id="auth">
+                    <div class="auth-tabs">
+                        <button class="auth-tab active" data-mode="login">Iniciar sesión</button>
+                        <button class="auth-tab" data-mode="register">Crear cuenta</button>
+                    </div>
+                    <form id="auth-form" class="login-mode">
+                        <input type="text" id="username" placeholder="Usuario" required autocomplete="username">
+                        <input type="password" id="password" placeholder="Contraseña" required autocomplete="current-password">
+                        <button type="submit" class="auth-button">Entrar</button>
+                        <p class="auth-text"></p>
+                    </form>
+                </section>`;
 
-            // tabs
-            tabs.forEach(tab => {
-                tab.addEventListener('click', () => switchMode(tab.dataset.mode));
-            });
+                const form = content.querySelector('#auth');
+                const username = content.querySelector('#username');
+                const password = content.querySelector('#password');
+                const submit = content.querySelector('.auth-button');
+                const tabs = content.querySelectorAll('.auth-tab');
+                const status = content.querySelector('.auth-text');
 
-            //form
-            form.addEventListener('submit', (e) => {
-                e.preventDefault();
+                const switchMode = (mode) => {
+                    form.classList.toggle('login-mode', mode === 'login');
+                    form.classList.toggle('register-mode', mode === 'register');
+                    submit.textContent = mode === 'login' ? 'Entrar' : 'Crear cuenta';
+                    tabs.forEach(tab => {
+                        tab.classList.toggle('active', tab.dataset.mode === mode);
+                    });
+                };
 
-                const mode = form.classList.contains('register-mode') ? 'register' : 'login';
-                const ok = mode === 'login' ? login(username.value, password.value) : register(username.value, password.value);
+                // tabs
+                tabs.forEach(tab => {
+                    tab.addEventListener('click', () => switchMode(tab.dataset.mode));
+                });
 
-                if (ok) {
-                    status.textContent = `Usuario ${username.value} ${mode === 'login' ? 'conectado' : 'creado'}`;
-                    (router && router.navigate) && setTimeout(() => router.navigate('home'), 987);
-                } else {
-                    status.textContent = mode === 'login' ? 'Credenciales incorrectas' : 'Usuario ya existe';
-                }
-            });
+                //form
+                form.addEventListener('submit', (e) => {
+                    e.preventDefault();
+
+                    const mode = form.classList.contains('register-mode') ? 'register' : 'login';
+                    const ok = mode === 'login' ? login(username.value, password.value) : register(username.value, password.value);
+
+                    if (ok) {
+                        status.textContent = `Usuario ${username.value} ${mode === 'login' ? 'conectado' : 'creado'}`;
+                        (router && router.navigate) && setTimeout(() => router.navigate('home'), 987);
+                    } else {
+                        status.textContent = mode === 'login' ? 'Credenciales incorrectas' : 'Usuario ya existe';
+                    }
+                });
+            }
         }
     }
 }

@@ -8,6 +8,7 @@ html {
     min-height: 233px;
     font-family: 'Funnel Sans', 'Segoe UI', 'Helvetica Neue', sans-serif;
     font-size: 100%;
+    caret-color: transparent;
     color: var(--color-D);
 }
 
@@ -74,6 +75,8 @@ body {
         align-items: center;
 
         #content {
+            margin: 0 var(--mp);
+
             .gallery-img {
                 width: 300px;
                 border-radius: 20px;
@@ -88,6 +91,7 @@ body {
         margin-top: auto;
 
         p {
+            margin: var(--mp);
             text-align: center;
         }
 
@@ -100,96 +104,87 @@ body {
 }
 
 
-.auth-tabs {
-    display: flex;
-
-    .auth-tab:last-child {
-        border-radius: 0 12px 0 0;
-    }
-
-    .auth-tab:first-child {
-        border-radius: 12px 0 0 0;
-    }
-}
-
-.auth-tab {
-    flex: 1;
-    padding: 0.75rem 1rem;
-    border: none;
-    background: var(--color-B);
-    color: var(--color-D);
-    cursor: pointer;
-    font-weight: 500;
-    transition: all 0.3s ease;
-}
-
-.auth-tab.active {
-    background: var(--color-D);
-    color: var(--color-B);
-}
-
-#auth-form {
+#auth {
     display: flex;
     flex-direction: column;
-    gap: 1rem;
-    padding: 1.5rem;
     background: var(--color-D);
-    border-radius: 0 0 16px 16px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-}
+    border-radius: var(--np);
+    box-shadow: 0px 5px 21px rgb(0, 0, 0, 0.34);
 
-#auth-form input {
-    padding: 0.75rem 1rem;
-    border: 2px solid var(--color-B);
-    border-radius: 12px;
-    font-size: 1rem;
-    background: var(--color-A);
-    color: var(--color-D);
-    transition: border-color 0.3s;
-}
+    .auth-text {
+        margin-top: var(--mp);
+        color: var(--color-B);
+        text-align: center;
+    }
 
-#auth-form input:focus {
-    outline: none;
-    border-color: var(--color-E);
-}
-
-.auth-submit {
-    padding: 1rem;
-    background: var(--color-B);
-    color: white;
-    border: none;
-    border-radius: 12px;
-    font-size: 1rem;
-    font-weight: 600;
-    cursor: pointer;
-    transition: all 0.3s;
-}
-
-.auth-submit:hover {
-    background: var(--primary-dark-color);
-    transform: translateY(-1px);
-}
-
-.auth-error {
-    color: var(--negative-color);
-    text-align: center;
-    padding: 0.75rem;
-    background: rgba(151, 44, 36, 0.1);
-    border-radius: 8px;
-    margin-top: 0.5rem;
-}
-
-
-@media (max-width: 480px) {
     .auth-tabs {
-        flex-direction: column;
-        gap: 0.5rem;
+        display: flex;
+        .auth-tab {
+            flex: 1;
+            padding: var(--mp);
+            border: none;
+            background: var(--color-B);
+            color: var(--color-D);
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+
+            &:last-child {
+                border-radius: 0 var(--mp) 0 0;
+            }
+
+            &:first-child {
+                border-radius: var(--mp) 0 0 0;
+            }
+
+            &.active {
+                background: var(--color-D);
+                color: var(--color-B);
+            }
+        }
     }
 
-    .auth-tab {
-        border-radius: 12px;
+    #auth-form {
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        align-items: center;
+        padding: var(--np) var(--np) 0.34rem var(--np) ;
+        gap: var(--mp);
+
+        input {
+            padding: var(--mp);
+            border: 2px solid var(--color-E);
+            border-radius: var(--np);
+            background: var(--color-A);
+            color: var(--color-D);
+            caret-color:auto;
+            transition: border-color 0.3s;
+
+            &:focus {
+                outline: none;
+                border-color: var(--color-C);
+            }
+        }
+
+    }
+    .auth-button {
+        padding: var(--mp);
+        margin: 0 var(--mp) var(--mp) var(--mp) ;
+        background: var(--color-B);
+        color: var(--color-E);
+        font-weight: 600;
+        border: none;
+        border-radius: var(--np);
+        cursor: pointer;
+        transition: all 0.3s;
+
+        &:hover {
+            background: var(--color-A);
+        }
     }
 }
+
 
 
 @media (min-width: 768px) {
