@@ -3,7 +3,7 @@
 
 html {
     overflow-x: hidden;
-    overflow-y: hidden;
+    overflow-y: auto;
     min-width: 140px;
     min-height: 233px;
     font-family: 'Funnel Sans', 'Segoe UI', 'Helvetica Neue', sans-serif;
@@ -77,9 +77,29 @@ body {
         #content {
             margin: 0 var(--mp);
 
-            .gallery-img {
+            .api-img {
                 width: 300px;
-                border-radius: 20px;
+                border-radius: var(--mp);
+            }
+
+            .bg-media {
+                position: fixed;
+                inset: 0;
+                width: 100vw;
+                height: 100vh;
+                z-index: -1;
+                overflow: hidden;
+                opacity: var(--opacity);
+
+                & img,
+                & video {
+                    position: absolute;
+                    inset: 0;
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                    object-position: center;
+                }
             }
         }
     }
@@ -119,6 +139,7 @@ body {
 
     .auth-tabs {
         display: flex;
+
         .auth-tab {
             flex: 1;
             padding: var(--mp);
@@ -149,7 +170,7 @@ body {
         flex-direction: column;
         flex-wrap: wrap;
         align-items: center;
-        padding: var(--np) var(--np) 0.34rem var(--np) ;
+        padding: var(--np) var(--np) 0.34rem var(--np);
         gap: var(--mp);
 
         input {
@@ -158,7 +179,8 @@ body {
             border-radius: var(--np);
             background: var(--color-A);
             color: var(--color-D);
-            caret-color:auto;
+            caret-color: auto;
+            text-align: center;
             transition: border-color 0.3s;
 
             &:focus {
@@ -168,9 +190,10 @@ body {
         }
 
     }
+
     .auth-button {
         padding: var(--mp);
-        margin: 0 var(--mp) var(--mp) var(--mp) ;
+        margin: 0 var(--mp) var(--mp) var(--mp);
         background: var(--color-B);
         color: var(--color-E);
         font-weight: 600;
@@ -184,8 +207,6 @@ body {
         }
     }
 }
-
-
 
 @media (min-width: 768px) {
     .nav-buttons .nav-button-label {

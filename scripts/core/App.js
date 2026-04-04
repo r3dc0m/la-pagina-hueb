@@ -20,7 +20,7 @@ export default class App {
         this.content = build('section', null, 'content', this.main);
 
         this.footer = build('footer', null, null, this.body);
-        this.footerText = build('p', 'La página Hueb © 2026. Contenido libre de derechos. Imágenes y multimedia: pixabay.com', 'footer-text', this.footer);
+        this.footerText = build('p', 'La página Hueb © 2026. Contenido libre de derechos y ambidiestros. Multimedia: pixabay.com', 'footer-text', this.footer);
 
         this.router = new Router(this.navBar, this.content);
         this.router.init();

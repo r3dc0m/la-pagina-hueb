@@ -7,15 +7,15 @@ export const Pages = {
         icon: 'fullEgg',
         block: 'left',
         render: (content) => {
-            content.innerHTML = '<p>Home test.</p>';
+            content.innerHTML = '<div class="bg-media"><video autoplay muted loop src="assets/video/fryingegg.mp4"></video></div><p>Home test.</p>';
         }
-    },
+    }, 
     modA: {
         title: 'Nuestros valores',
         icon: 'potato',
         block: 'center',
         render: (content) => {
-            content.innerHTML = '<p>modA test.</p>';
+            content.innerHTML = '<div class="bg-media"><img src="assets/images/eggs01.jpg" alt="Huebs"></div><p>modA test.</p>';
         }
     },
     modB: {
@@ -23,14 +23,11 @@ export const Pages = {
         icon: 'bird',
         block: 'center',
         async render(content) {
+            content.innerHTML = '<div class="bg-media"><img src="assets/images/roster01.jpg" alt="Platty"></div>';
             try {
-                content.innerHTML = '<div class="loading">Cargando...</div>';
                 const response = await fetch('https://api.thecatapi.com/v1/images/search');
                 const data = await response.json();
-
-                content.innerHTML = '';
-                build('img', null, null, content, { className: 'gallery-img', src: data[0].url, alt: 'Imagen de gato aleatorio' })
-
+                build('img', null, null, content, { className: 'api-img', src: data[0].url, alt: 'Un gato distinto' })
             } catch (error) {
                 content.innerHTML = `<p>Error: ${error}</p>`;
             }
@@ -41,7 +38,7 @@ export const Pages = {
         icon: 'tractor',
         block: 'center',
         render: (content) => {
-            content.innerHTML = '<p>modC test.</p>';
+            content.innerHTML = '<div class="bg-media"><img src="assets/images/horse02.jpg" alt="Caballo"></div><p>modC test.</p>';
         }
     },
     modD: {
@@ -49,7 +46,7 @@ export const Pages = {
         icon: 'basket',
         block: 'center',
         render: (content) => {
-            content.innerHTML = '<p>modD test.</p>';
+            content.innerHTML = '<div class="bg-media"><img src="assets/images/egg01.jpg" alt="Hueb"></div><p>modD test.</p>';
         }
     },
     user: {
@@ -58,8 +55,9 @@ export const Pages = {
         block: 'right',
         render(content, router) {
             const currentUser = getCurrentUser();
+            content.innerHTML = '<div class="bg-media"><img src="assets/images/eggs04.jpg" alt="Huebs"></div>'
             if (currentUser) {
-                content.innerHTML = `
+                content.innerHTML += `
                 <section id="auth">
                     <p class="auth-text">No sé quién eres, ${currentUser.username}.</p>
                     <button class="auth-button">Desconectar, por favor.</button>
@@ -70,15 +68,15 @@ export const Pages = {
                     router.navigate('user');
                 });
             } else {
-                content.innerHTML = `
+                content.innerHTML += `
                 <section id="auth">
                     <div class="auth-tabs">
                         <button class="auth-tab active" data-mode="login">Iniciar sesión</button>
                         <button class="auth-tab" data-mode="register">Crear cuenta</button>
                     </div>
                     <form id="auth-form" class="login-mode">
-                        <input type="text" id="username" placeholder="Usuario" required autocomplete="username">
-                        <input type="password" id="password" placeholder="Contraseña" required autocomplete="current-password">
+                        <input type="text" id="username" placeholder="Usuario" required autocomplete="off">
+                        <input type="password" id="password" placeholder="Contraseña" required autocomplete="off">
                         <button type="submit" class="auth-button">Entrar</button>
                         <p class="auth-text"></p>
                     </form>
