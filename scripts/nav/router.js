@@ -27,7 +27,7 @@ export class Router {
         }
 
         this.content.innerHTML = '';
-        page.render(this.content);
+        await page.render(this.content);
 
         // active class
         document.querySelectorAll('.nav-buttons').forEach(b =>

@@ -2,13 +2,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Funnel+Sans:ital,wght@0,300..800;1,300..800&display=swap');
 
 html {
-    height: 100%;
-    font-size: 100%;
-    overflow-y: scroll;
     overflow-x: hidden;
+    overflow-y: hidden;
     min-width: 140px;
     min-height: 233px;
     font-family: 'Funnel Sans', 'Segoe UI', 'Helvetica Neue', sans-serif;
+    font-size: 100%;
     color: var(--color-D);
 }
 
@@ -19,81 +18,89 @@ body {
     flex-direction: column;
     flex-shrink: 1;
     background-color: var(--color-A);
-}
 
-header {
-    display: flex;
-    flex-direction: column;
-
-    #title {
-        align-self: center;
-        text-align: center;
-        margin: 0;
-        padding: var(--mp) 0;
-        width: 100%;
-        color: var(--color-B);
-        background-color: var(--color-D);
-    }
-
-    .nav-bar {
+    header {
         display: flex;
-        background: var(--color-B);
-        padding: var(--mp);
-        flex-wrap: nowrap;
-        flex-direction: row;
-        justify-content: space-between;
-        align-items: center;
-        text-align: center;
-        width: 100;
-        /* hmm */
+        flex-direction: column;
 
-        .nav-buttons {
-            background: none;
-            border: none;
-            display: inline-flex;
-            flex-direction: column;
+        #title {
+            align-self: center;
+            text-align: center;
+            margin: 0;
+            padding: var(--mp) 0;
+            width: 100%;
+            color: var(--color-B);
+            background-color: var(--color-D);
+        }
+
+        .nav-bar {
+            display: flex;
+            background: var(--color-B);
+            padding: var(--mp);
+            flex-wrap: nowrap;
+            flex-direction: row;
+            justify-content: space-between;
             align-items: center;
-            color: var(--color-D);
-            transition: color 0.2s ease, transform 0.2s ease;
+            text-align: center;
+            /* hmm */
 
-            .nav-button-label {
-                display: none;
+            .nav-buttons {
+                background: none;
+                border: none;
+                display: inline-flex;
+                flex-direction: column;
+                align-items: center;
+                gap: 0.34rem;
+                color: var(--color-D);
+                transition: color 0.2s ease, transform 0.2s ease;
+
+                .nav-button-label {
+                    display: none;
+                }
+            }
+
+            .nav-buttons:hover {
+                color: var(--color-E);
+                transform: scale(1.1);
             }
         }
+    }
 
-        .nav-buttons:hover {
-            color: var(--color-E);
-            transform: scale(1.1);
+    main {
+        flex: 1;
+        display: flex;
+        justify-content: center;
+        align-items: center;
 
-            /* .nav-button-label {
-                 display: inline-block; media query 
-            } */
+        #content {
+            .gallery-img {
+                width: 300px;
+                border-radius: 20px;
+            }
+        }
+    }
+
+    footer {
+        display: flex;
+        justify-content: center;
+        background: var(--color-B);
+        margin-top: auto;
+
+        p {
+            text-align: center;
         }
 
-        /* a {} */
+        a {
+            flex-direction: column;
+            margin: var(--mp) var(--np);
+            white-space: nowrap;
+        }
     }
 }
 
-main {
-    flex: 1;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
 
-footer {
-    display: flex;
-    justify-content: center;
-    background: var(--color-B);
-    margin-top: auto;
-
-    p {
-        text-align: center;
-    }
-
-    a {
-        flex-direction: column;
-        margin: var(--mp) var(--np);
-        white-space: nowrap;
+@media (min-width: 768px) {
+    .nav-buttons .nav-button-label {
+        display: inline-block !important;
     }
 }

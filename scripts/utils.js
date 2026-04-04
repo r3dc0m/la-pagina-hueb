@@ -25,7 +25,7 @@ export function createSvgIcon(name, size = 24, parent) {
 
 export const build = (tag, text = null, id, parent, options = {}) => {
     if (!parent || !parent.appendChild) {
-        throw new Error("parent must be a valid node!");
+        throw new Error('parent must be a valid node!');
     }
 
     const element = document.createElement(tag);
@@ -33,6 +33,11 @@ export const build = (tag, text = null, id, parent, options = {}) => {
     if (id) element.id = id;
 
     if (options.className) element.className = options.className;
+
+    if (options.src && (tag === 'img' || tag === 'video' || tag === 'source')) {
+        element.src = options.src;
+        if (options.alt) element.alt = options.alt;
+    }
 
     if (options.attrs) {
         Object.entries(options.attrs).forEach(([key, value]) => {
