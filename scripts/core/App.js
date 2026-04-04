@@ -23,6 +23,7 @@ export default class App {
         this.footerText = build('p', 'La página Hueb © 2026. Contenido libre de derechos. Imágenes y multimedia: pixabay.com', 'footer-text', this.footer);
 
         this.router = new Router(this.navBar, this.content);
+        this.router.init();
         this.router.navigate('home');
     }
 
