@@ -81,6 +81,7 @@ main {
 
         .api-img {
             border-radius: var(--mp);
+            box-shadow: var(--shadow);
             width: 100%;
             max-width: 300px;
             height: auto;
@@ -137,7 +138,9 @@ footer {
     flex-direction: column;
     background: var(--color-D);
     border-radius: var(--np);
-    box-shadow: 0px 5px 21px rgb(0, 0, 0, 0.34);
+    /* aspect-ratio: 7 / 10;
+    border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%; */
+    box-shadow: var(--shadow);
 
     .auth-text {
         margin-top: var(--mp);

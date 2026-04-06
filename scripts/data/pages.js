@@ -1,21 +1,31 @@
 import { build } from '../components/utils.js';
 import { login, register, getCurrentUser, logout } from '../services/authService.js';
 
+function createBackground(content, background) {
+    if (!background) return;
+    const bgMedia = build('div', { className: 'bg-media' }, content);
+    (background.type === 'video') ? build('video', { src: background.src, attrs: { autoplay: '', muted: '', loop: '' } }, bgMedia) : build('img', { src: background.src, alt: background.alt || 'Fondo' }, bgMedia);
+}
+
 export const Pages = {
     home: {
         title: 'Inicio',
         icon: 'fullEgg',
         block: 'left',
+        background: { type: 'video', src: 'assets/video/fryingegg.mp4' },
         render: (content) => {
-            content.innerHTML = '<div class="bg-media"><video autoplay muted loop src="assets/video/fryingegg.mp4"></video></div><p>Home test.</p>';
+            createBackground(content, Pages.home.background);
+            content.innerHTML += '<p>Home test.</p>';
         }
-    }, 
+    },
     modA: {
         title: 'Nuestros valores',
         icon: 'potato',
         block: 'center',
+        background: { type: 'img', src: 'assets/images/eggs01.jpg', alt: 'Huebs' },
         render: (content) => {
-            content.innerHTML = '<div class="bg-media"><img src="assets/images/eggs01.jpg" alt="Huebs"></div><p>modA test.</p>';
+            createBackground(content, Pages.modA.background);
+            content.innerHTML += '<p>modA test.</p>';
         }
     },
     modB: {
@@ -27,7 +37,7 @@ export const Pages = {
             try {
                 const response = await fetch('https://api.thecatapi.com/v1/images/search');
                 const data = await response.json();
-                build('img', { className: 'api-img', src: data[0].url, alt: 'Un gato distinto'}, content)
+                build('img', { className: 'api-img', src: data[0].url, alt: 'Un gato distinto' }, content)
             } catch (error) {
                 content.innerHTML = `<p>Error: ${error}</p>`;
             }
@@ -77,8 +87,8 @@ export const Pages = {
                     <form id="auth-form" class="login-mode">
                         <input type="text" id="username" placeholder="Usuario" required autocomplete="off">
                         <input type="password" id="password" placeholder="Contraseña" required autocomplete="off">
-                        <button type="submit" class="auth-button">Entrar</button>
                         <p class="auth-text"></p>
+                        <button type="submit" class="auth-button">Entrar</button>
                     </form>
                 </section>`;
 
