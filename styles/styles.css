@@ -141,9 +141,11 @@ footer {
 
     .auth-tabs {
         display: flex;
+        flex-wrap: wrap;
 
         .auth-tab {
             flex: 1;
+            min-width: 0;
             padding: var(--mp);
             border: none;
             background: var(--color-B);
@@ -174,8 +176,15 @@ footer {
         align-items: center;
         padding: var(--np) var(--np) 0.34rem var(--np);
         gap: var(--mp);
-
+        
+        * {
+            min-width: 0;
+            box-sizing:border-box;
+            flex-shrink: 1;
+        }
+        
         input {
+            width:100%;
             padding: var(--mp);
             border: 2px solid var(--color-E);
             border-radius: var(--np);
@@ -191,21 +200,20 @@ footer {
             }
         }
 
-    }
+        .auth-button {
+            padding: var(--mp);
+            margin: 0 var(--mp) var(--mp) var(--mp);
+            background: var(--color-B);
+            color: var(--color-E);
+            font-weight: 600;
+            border: none;
+            border-radius: var(--np);
+            cursor: pointer;
+            transition: all 0.3s;
 
-    .auth-button {
-        padding: var(--mp);
-        margin: 0 var(--mp) var(--mp) var(--mp);
-        background: var(--color-B);
-        color: var(--color-E);
-        font-weight: 600;
-        border: none;
-        border-radius: var(--np);
-        cursor: pointer;
-        transition: all 0.3s;
-
-        &:hover {
-            background: var(--color-A);
+            &:hover {
+                background: var(--color-A);
+            }
         }
     }
 }
