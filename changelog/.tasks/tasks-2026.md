@@ -162,3 +162,39 @@ due: 2026-04-03
 
 REQ: Added google custom fonts.
 FIX: Delivered.
+
+## [UI] Background media auto assign
+id: task-1775344739965-5c3f0ec3
+status: todo
+priority: medium
+created: 2026-04-04
+due: 
+
+REQ: define background media rules for each view programatically.
+
+## [UI] Performance with background references
+id: task-1775344809632-87d945f0
+status: todo
+priority: medium
+created: 2026-04-04
+due: 
+
+REQ: check wether instancing graphics is more performant than creating tags with innerHTML.
+
+## [UI] Prune unused media
+id: task-1775344888033-7af0a7e4
+status: todo
+priority: low
+created: 2026-04-04
+due: 
+
+REQ: remove unused media.
+
+## [DOC] General documentation
+id: task-1775344931356-3eef88cb
+status: todo
+priority: low
+created: 2026-04-04
+due: 
+
+REQ: mermaid charts, scope, feature list.
