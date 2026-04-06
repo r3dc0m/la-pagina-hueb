@@ -25,7 +25,7 @@ header {
     display: flex;
     flex-direction: column;
 
-    #title {
+    .title {
         font-size: var(--np);
         width: 100%;
         align-self: center;
@@ -76,7 +76,7 @@ main {
     justify-content: center;
     align-items: center;
 
-    #content {
+    .content {
         margin: 0 var(--mp);
 
         .api-img {

@@ -5,27 +5,30 @@ import { Router } from '../services/router.js';
 export default class DOMmanager {
     constructor() {
         this.body = document.body;
+        this.createLayout();
+        this.setupRouter();
     }
 
     createLayout() {
-        this.header = build('header', null, null, this.body);
+        this.header = build('header', {}, this.body);
 
-        const navBar = build('nav', null, null, this.header, { className: 'nav-bar' });
-        this.navBar = new NavBar(navBar);
-        
-        this.h1 = build('h1', 'La página Hueb', 'title', this.header);
+        this.navBar = build('nav', { className: 'nav-bar' }, this.header);
+        new NavBar(this.navBar);
 
-        this.main = build('main', null, 'main', this.body);
-        this.content = build('section', null, 'content', this.main);
+        this.h1 = build('h1', { text: 'La página Hueb', className: 'title' }, this.header);
 
-        this.footer = build('footer', null, null, this.body);
-        this.footerText = build('p', 'La página Hueb © 2026. Contenido libre de derechos y ambidiestros. Multimedia: pixabay.com', 'footer-text', this.footer);
+        this.main = build('main', { className: 'main' }, this.body);
+        this.content = build('section', { className: 'content' }, this.main);
 
-        this.router = new Router(navBar, this.content);
-        this.router.init();
+        this.footer = build('footer', {}, this.body);
+        build('p', {
+            text: 'La página Hueb © 2026. Contenido libre de derechos (y ambidiestros). Multimedia: pixabay.com',
+            className: 'footer-text'
+        }, this.footer);
     }
 
-    init() {
-        this.createLayout();
+    setupRouter() {
+        this.router = new Router(this.navBar, this.content);
+        this.router.init();
     }
 }

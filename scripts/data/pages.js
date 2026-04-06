@@ -27,7 +27,7 @@ export const Pages = {
             try {
                 const response = await fetch('https://api.thecatapi.com/v1/images/search');
                 const data = await response.json();
-                build('img', null, null, content, { className: 'api-img', src: data[0].url, alt: 'Un gato distinto' })
+                build('img', { className: 'api-img', src: data[0].url, alt: 'Un gato distinto'}, content)
             } catch (error) {
                 content.innerHTML = `<p>Error: ${error}</p>`;
             }

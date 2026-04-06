@@ -1,7 +1,5 @@
 import { icons } from '../data/icons.js';
 
-export const print = (i) => console.log(i);
-
 const createSvg = (tag) => document.createElementNS('http://www.w3.org/2000/svg', tag);
 
 export function createSvgIcon(name, size = 24, parent) {
@@ -23,7 +21,9 @@ export function createSvgIcon(name, size = 24, parent) {
     return svg;
 }
 
-export const build = (tag, text = null, id, parent, options = {}) => {
+export function build(tag, options = {}, parent) {
+    const { text = null, id = null, className = null, attrs = {}, src, alt } = options;
+
     if (!parent || !parent.appendChild) {
         throw new Error('parent must be a valid node!');
     }
@@ -31,37 +31,41 @@ export const build = (tag, text = null, id, parent, options = {}) => {
     const element = document.createElement(tag);
 
     if (id) element.id = id;
-
-    if (options.className) element.className = options.className;
-
-    if (options.src && (tag === 'img' || tag === 'video' || tag === 'source')) {
-        element.src = options.src;
-        if (options.alt) element.alt = options.alt;
+    if (className) element.className = className;
+    if (src && (tag === 'img' || tag === 'video' || tag === 'source')) {
+        element.src = src;
+        if (alt) element.alt = alt;
     }
-
-    if (options.attrs) {
-        Object.entries(options.attrs).forEach(([key, value]) => {
-            element.setAttribute(key, value);
-        });
-    }
-
-    if (text !== undefined && text !== null) {
+    if (text !== null && text !== undefined) {
         element.textContent = text;
     }
 
-    parent.appendChild(element);
+    Object.entries(attrs).forEach(([key, value]) => {
+        element.setAttribute(key, value);
+    });
 
-    if (tag === 'button' && options?.name) {
-        createSvgIcon(options.name, options.size || 24, element);
-        if (options?.label) {
-            const label = document.createElement('span');
-            label.textContent = options.label;
-            label.className = 'nav-button-label';
-            element.appendChild(label);
-        }
+
+    parent.appendChild(element);
+    return element;
+}
+
+
+export function buildIconButton(parent, { route, icon, label, size = 24 }) {
+    const button = build('button', {
+        className: 'nav-buttons',
+        attrs: { 'data-route': route, type: 'button' }
+    }, parent);
+
+    button.appendChild(createSvgIcon(icon, size, button));
+
+    if (label) {
+        const span = document.createElement('span');
+        span.className = 'nav-button-label';
+        span.textContent = label;
+        button.appendChild(span);
     }
 
-    return element
+    return button;
 }
 
 export function buildBlock(type, content, parent) {
@@ -69,17 +73,17 @@ export function buildBlock(type, content, parent) {
 
     switch (type) {
         case 'card':
-            build('img', null, null, article, { src: content.image, alt: content.alt });
-            build('h3', content.title, null, article);
-            build('p', content.description, null, article);
+            build('img', { src: content.image, alt: content.alt }, article);
+            build('h3', { text: content.title }, article);
+            build('p', { text: content.description }, article);
             break;
 
         case 'review':
-            // build('p', content.comment, 'review-comment', article);
+            build('p', { text: content.comment, className: 'review-comment' }, article);
             break;
 
         case 'text':
-            // build('p', content.text, 'text-block', article);
+            build('p', { text: content.text, className: 'text-block' }, article);
             break;
     }
 

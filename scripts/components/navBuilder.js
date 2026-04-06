@@ -1,4 +1,4 @@
-import { build } from './utils.js';
+import { build, buildIconButton } from './utils.js';
 import { Pages } from '../data/pages.js';
 
 export class NavBar {
@@ -11,19 +11,16 @@ export class NavBar {
 
     createBlocks() {
         ['left', 'center', 'right'].forEach(block => {
-            this.blocks[block] = build('div', null, null, this.parent, {
-                className: `nav-${block}`
-            });
+            this.blocks[block] = build('div', { className: `nav-${block}` }, this.parent);
         });
     }
 
     createButtons() {
         Object.entries(Pages).forEach(([route, config]) => {
-            const btn = build('button', null, null, this.blocks[config.block], {
-                className: 'nav-buttons',
-                name: config.icon,
-                label: config.title,
-                attrs: { 'data-route': route }
+            buildIconButton(this.blocks[config.block], {
+                route,
+                icon: config.icon,
+                label: config.title
             });
         });
     }
