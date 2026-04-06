@@ -24,6 +24,8 @@ export class Page {
     async render(content, router) {
         this.createBackground(content);
         this.pageContent = build('section', { className: 'page-content', id: 'page-content' }, content);
-        await this.renderContent(this.pageContent, router, this);
+        if (typeof this.renderContent === 'function') {
+            await this.renderContent(this.pageContent, router, this);
+        }
     }
 }

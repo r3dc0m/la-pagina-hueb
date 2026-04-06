@@ -1,71 +1,68 @@
 import { build } from '../components/utils.js';
 import { login, register, getCurrentUser, logout } from '../services/authService.js';
-
-function createBackground(content, background) {
-    if (!background) return;
-    const bgMedia = build('div', { className: 'bg-media' }, content);
-    (background.type === 'video') ? build('video', { src: background.src, attrs: { autoplay: '', muted: '', loop: '' } }, bgMedia) : build('img', { src: background.src, alt: background.alt || 'Fondo' }, bgMedia);
-}
+import { Page } from '../components/Page.js';
 
 export const Pages = {
-    home: {
+    home: new Page({
         title: 'Inicio',
         icon: 'fullEgg',
         block: 'left',
         background: { type: 'video', src: 'assets/video/fryingegg.mp4' },
-        render: (content) => {
-            createBackground(content, Pages.home.background);
-            content.innerHTML += '<p>Home test.</p>';
+        fn: (content, router, page) => {
+            content.innerHTML = `<p>page: '${page.title}'<br>route: '${router.currentRoute}'</p>`;
         }
-    },
-    modA: {
+    }),
+    modA: new Page({
         title: 'Nuestros valores',
         icon: 'potato',
         block: 'center',
         background: { type: 'img', src: 'assets/images/eggs01.jpg', alt: 'Huebs' },
-        render: (content) => {
-            createBackground(content, Pages.modA.background);
-            content.innerHTML += '<p>modA test.</p>';
+        fn: (content, router, page) => {
+            content.innerHTML = `<p>page: '${page.title}'<br>route: '${router.currentRoute}'</p>`;
         }
-    },
-    modB: {
+    }),
+    modB: new Page({
         title: '¿Quién protege la Hueb?',
         icon: 'bird',
         block: 'center',
-        async render(content) {
-            content.innerHTML = '<div class="bg-media"><img src="assets/images/roster01.jpg" alt="Platty"></div>';
+        background: { type: 'img', src: 'assets/images/roster01.jpg', alt: 'Platty' },
+        fn: async (content, router, page) => {
+            content.innerHTML = '<p class="loading">Cargando felino...</p>';
             try {
                 const response = await fetch('https://api.thecatapi.com/v1/images/search');
                 const data = await response.json();
+                content.innerHTML = '' && data;
                 build('img', { className: 'api-img', src: data[0].url, alt: 'Un gato distinto' }, content)
             } catch (error) {
                 content.innerHTML = `<p>Error: ${error}</p>`;
             }
         }
-    },
-    modC: {
+    }),
+    modC: new Page({
         title: 'El no saber y el hablar mucho',
         icon: 'tractor',
         block: 'center',
-        render: (content) => {
-            content.innerHTML = '<div class="bg-media"><img src="assets/images/horse02.jpg" alt="Caballo"></div><p>modC test.</p>';
+        background: { type: 'img', src: 'assets/images/horse02.jpg', alt: 'Horse' },
+        fn: (content, router, page) => {
+            content.innerHTML = `<p>page: '${page.title}'<br>route: '${router.currentRoute}'</p>`;
         }
-    },
-    modD: {
+    }),
+    modD: new Page({
         title: 'La singularidad',
         icon: 'basket',
         block: 'center',
-        render: (content) => {
-            content.innerHTML = '<div class="bg-media"><img src="assets/images/egg01.jpg" alt="Hueb"></div><p>modD test.</p>';
+        background: { type: 'img', src: 'assets/images/egg01.jpg', alt: 'Hueb' },
+        fn: (content, router, page) => {
+            content.innerHTML = `<p>page: '${page.title}'<br>route: '${router.currentRoute}'</p>`;
         }
-    },
-    user: {
+    }),
+    user: new Page({
         title: 'Usuario',
         icon: 'user',
         block: 'right',
-        render(content, router) {
+        background: { type: 'img', src: 'assets/images/eggs04.jpg', alt: 'Huebs' },
+        fn: (content, router, page) => {
             const currentUser = getCurrentUser();
-            content.innerHTML = '<div class="bg-media"><img src="assets/images/eggs04.jpg" alt="Huebs"></div>'
             if (currentUser) {
                 content.innerHTML += `
                 <section id="auth">
@@ -129,5 +126,5 @@ export const Pages = {
                 });
             }
         }
-    }
+    })
 }
