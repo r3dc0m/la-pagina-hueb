@@ -1,0 +1,45 @@
+graph TB
+    subgraph 'DATA'
+        Icons[icons.js]
+        Cards[cards.js]
+        Reviews[reviews.js]
+    end
+    
+    subgraph 'SERVICES'
+        Auth[authService.js<br/>localStorage]
+    end
+    
+    subgraph 'COMPONENTS'
+        DOMmgr[DOMmanager<br/>createLayout setupRouter]
+        NavBar[NavBar<br/>buildIconButton]
+        Page[Page<br/>render fn]
+    end
+    
+    App[App.js<br/>new DOMmanager] 
+    
+    App --> DOMmgr
+    DOMmgr -..-> Layout[(Layout DOM<br/>header nav main<br/>content footer)]
+    DOMmgr -....-> R1[Router<br/>new Router nav content]
+    
+    R1 -..->|navigate route| Pages[Pages<br/>new Page x6]
+    R1 -.->|clicks| NavBar
+    
+    NavBar -..->|data-route| R1
+    
+    Pages --> Page
+    
+    Page --> B1[bg-media<br/>video/img]
+    Page --> PC[section.page-content]
+    Page -->|fn| PF[Page.fn<br/>content.innerHTML]
+    
+    PF --> Auth
+    PF -.->|fetch| CatAPI[TheCatAPI]
+    
+    Utils[utils.js<br/>build<br/>createSvgIcon] --> Layout
+    Utils --> NavBar
+    Utils --> Page
+    Utils --> PF
+    
+    Icons --> Utils
+    Cards -.-> PF
+    Reviews -.-> PF

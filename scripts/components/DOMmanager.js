@@ -1,5 +1,5 @@
 import { build } from './utils.js';
-import { NavBar } from './navBuilder.js';
+import { NavBar } from './NavBar.js';
 import { Router } from '../services/router.js';
 
 export default class DOMmanager {

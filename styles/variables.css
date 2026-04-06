@@ -12,7 +12,7 @@
     --color-E: var(--tone5);
     --opacity: 34%;
 
-    @media (prefers-color-scheme: dark) {
+    @media (prefers-color-scheme: light) {
         --color-A: var(--tone5);
         --color-B: var(--tone4);
         --color-D: var(--tone2);
