@@ -63,3 +63,25 @@ export const build = (tag, text = null, id, parent, options = {}) => {
 
     return element
 }
+
+export function buildBlock(type, content, parent) {
+    const article = build('article', null, null, parent);
+
+    switch (type) {
+        case 'card':
+            build('img', null, null, article, { src: content.image, alt: content.alt });
+            build('h3', content.title, null, article);
+            build('p', content.description, null, article);
+            break;
+
+        case 'review':
+            // build('p', content.comment, 'review-comment', article);
+            break;
+
+        case 'text':
+            // build('p', content.text, 'text-block', article);
+            break;
+    }
+
+    return article;
+}
