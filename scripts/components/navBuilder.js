@@ -1,7 +1,7 @@
-import { build } from '../utils.js';
-import { Pages } from './pages.js';
+import { build } from './utils.js';
+import { Pages } from '../data/pages.js';
 
-export class NavBuilder {
+export class NavBar {
     constructor(parent) {
         this.parent = parent;
         this.blocks = {};

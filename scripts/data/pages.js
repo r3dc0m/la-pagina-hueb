@@ -1,5 +1,5 @@
-import { build } from '../utils.js';
-import { login, register, getCurrentUser, logout } from '../auth/authService.js';
+import { build } from '../components/utils.js';
+import { login, register, getCurrentUser, logout } from '../services/authService.js';
 
 export const Pages = {
     home: {

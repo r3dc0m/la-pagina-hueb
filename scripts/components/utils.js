@@ -1,4 +1,4 @@
-import { icons } from './content/icons.js';
+import { icons } from '../data/icons.js';
 
 export const print = (i) => console.log(i);
 

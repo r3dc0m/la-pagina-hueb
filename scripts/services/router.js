@@ -1,4 +1,4 @@
-import { Pages } from './pages.js';
+import { Pages } from '../data/pages.js';
 
 export class Router {
     constructor(nav, content) {
@@ -11,6 +11,7 @@ export class Router {
         this.nav.querySelectorAll('[data-route]').forEach(btn => {
             btn.addEventListener('click', () => this.navigate(btn.dataset.route))
         })
+        this.navigate('home');
     }
 
     async navigate(route) {
