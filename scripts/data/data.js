@@ -23,22 +23,47 @@ export const cards = {
 
 export const reviews = {
     review01: {
-        avatar: "/assets/images/profiles/prfile_car.jpg",
-        username: "Usuario01",
+        avatar: '/assets/images/profiles/prfile_car.jpg',
+        username: 'Usuario01',
         rating: 4,
-        comment: "¡Me encantan los huebs!"
-    },    
+        comment: '¡Me encantan los huebs!'
+    },
     review02: {
-        avatar: "/assets/images/profiles/prfile_car.jpg",
-        username: "Usuario02",
+        avatar: '/assets/images/profiles/prfile_car.jpg',
+        username: 'Usuario02',
         rating: 4,
-        comment: "¡Me encantan los huebs!"
-    },    
+        comment: '¡Me encantan los huebs!'
+    },
     review03: {
-        avatar: "/assets/images/profiles/prfile_car.jpg",
-        username: "Usuario03",
+        avatar: '/assets/images/profiles/prfile_car.jpg',
+        username: 'Usuario03',
         rating: 4,
-        comment: "¡Me encantan los huebs!"
+        comment: '¡Me encantan los huebs!'
+    }
+}
+
+export const text = {
+    home: {
+        text: 'There is a very good description of it.'
+    },
+    modA: {
+        text: 'There is a very good description of it.'
+    },
+    modB: {
+        text: 'There is a very good description of it.'
+    },
+    modC: {
+        text: 'There is a very good description of it.'
+    },
+    modD: {
+        text: 'There is a very good description of it.'
+    },
+    user: {
+        text: 'There is a very good description of it.'
+    },
+    dummytext: {
+        title: 'My header hurts right now.',
+        text: 'There is a very good description of it.'
     }
 }
 

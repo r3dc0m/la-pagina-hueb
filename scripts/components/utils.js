@@ -90,6 +90,8 @@ export function buildBlock(type, content, parent) {
             break;
 
         case 'text':
+            const title = content.title || 'no title?';
+            build('h2', { text: title, className: 'text-header' }, article);
             build('p', { text: content.text, className: 'text-block' }, article);
             break;
     }

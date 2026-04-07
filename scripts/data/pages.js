@@ -1,7 +1,7 @@
-import { build, buildBlockGroup } from '../components/utils.js';
+import { build, buildBlock, buildBlockGroup } from '../components/utils.js';
 import { login, register, getCurrentUser, logout } from '../services/authService.js';
 import { Page } from '../components/Page.js';
-import { cards } from '../data/data.js';
+import { cards, text } from '../data/data.js';
 
 export const Pages = {
     home: new Page({
@@ -45,7 +45,7 @@ export const Pages = {
         block: 'center',
         background: { type: 'img', src: 'assets/images/horse02.jpg', alt: 'Horse' },
         fn: (content, router, page) => {
-            content.innerHTML = `<p>page: '${page.title}'<br>route: '${router.currentRoute}'</p>`;
+            buildBlock('text', { title: page.title, text: text[router.currentRoute]?.text || ''}, content); 
             buildBlockGroup('card', Object.values(cards), content, 'card-pack');
         }
     }),
