@@ -18,6 +18,46 @@ export const cards = {
         image: '/assets/images/brokenegg.jpg',
         title: 'card04',
         description: 'hello world'
+    }, 
+    card05: {
+        image: '/assets/images/brokenegg.jpg',
+        title: 'card01',
+        description: 'hello world'
+    },
+    card06: {
+        image: '/assets/images/brokenegg.jpg',
+        title: 'card02',
+        description: 'hello world'
+    },
+    card07: {
+        image: '/assets/images/brokenegg.jpg',
+        title: 'card03',
+        description: 'hello world'
+    },
+    card08: {
+        image: '/assets/images/brokenegg.jpg',
+        title: 'card04',
+        description: 'hello world'
+    }, 
+    card09: {
+        image: '/assets/images/brokenegg.jpg',
+        title: 'card01',
+        description: 'hello world'
+    },
+    card10: {
+        image: '/assets/images/brokenegg.jpg',
+        title: 'card02',
+        description: 'hello world'
+    },
+    card11: {
+        image: '/assets/images/brokenegg.jpg',
+        title: 'card03',
+        description: 'hello world'
+    },
+    card12: {
+        image: '/assets/images/brokenegg.jpg',
+        title: 'card04',
+        description: 'hello world'
     },
 }
 

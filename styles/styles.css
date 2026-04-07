@@ -9,7 +9,7 @@ html {
     font-family: 'Funnel Sans', 'Segoe UI', 'Helvetica Neue', sans-serif;
     font-size: 100%;
     caret-color: transparent;
-    color: var(--color-D);
+    color: var(--color-E);
 }
 
 body {
@@ -33,12 +33,12 @@ header {
         margin: 0;
         padding: var(--mp) 0;
         color: var(--color-B);
-        background-color: var(--color-D);
+        background-color: var(--color-E);
     }
 
     .nav-bar {
         display: flex;
-        background: var(--color-B);
+        background: var(--color-C);
         padding: var(--mp);
         flex-wrap: nowrap;
         flex-direction: row;
@@ -54,7 +54,7 @@ header {
             flex-direction: column;
             align-items: center;
             gap: 0.34rem;
-            color: var(--color-D);
+            color: var(--color-E);
             transition: color 0.2s ease, transform 0.2s ease;
 
             .nav-button-label {
@@ -62,7 +62,7 @@ header {
             }
 
             &:hover {
-                color: var(--color-E);
+                color: var(--color-A);
                 transform: scale(1.1);
             }
         }
@@ -79,7 +79,7 @@ main {
 
     .content {
         max-width: 987px;
-        width: 100%;
+        height: stretch;
 
         .api-img {
             border-radius: var(--mp);
@@ -94,7 +94,7 @@ main {
         }
 
         .bg-media {
-            position: absolute;
+            position: fixed;
             object-fit: cover;
             object-position: center;
             width: 100vw;
@@ -127,7 +127,7 @@ footer {
 
 .page-content {
     max-width: 987px;
-    margin: var(--mp);
+    margin: 0 var(--mp) var(--mp) var(--mp);
     display: flex;
     flex-direction: column;
     gap: var(--mp);
@@ -144,12 +144,12 @@ footer {
 
         article {
             display: flex;
-            flex: 1 1 300px; 
+            flex: 1 1 300px;
             flex-direction: column;
-            background: var(--color-A);
+            background: var(--color-B);
+            box-shadow: var(--shadow);
             border-radius: var(--mp);
             overflow: hidden;
-            box-shadow: var(--shadow);
             min-height: 100%;
             min-width: 0;
 
@@ -171,11 +171,11 @@ footer {
 #auth {
     display: flex;
     flex-direction: column;
-    background: var(--color-D);
+    background: var(--color-E);
+    box-shadow: var(--shadow);
     border-radius: var(--np);
     /* aspect-ratio: 7 / 10;
     border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%; */
-    box-shadow: var(--shadow);
 
     .auth-text {
         margin-top: var(--mp);
@@ -192,8 +192,8 @@ footer {
             min-width: 0;
             padding: var(--mp);
             border: none;
-            background: var(--color-B);
-            color: var(--color-D);
+            background: var(--color-C);
+            color: var(--color-E);
             cursor: pointer;
             font-weight: 600;
             transition: all 0.3s ease;
@@ -207,8 +207,8 @@ footer {
             }
 
             &.active {
-                background: var(--color-D);
-                color: var(--color-B);
+                background: var(--color-B);
+                color: var(--color-D);
             }
         }
     }
@@ -230,25 +230,26 @@ footer {
         input {
             width: 100%;
             padding: var(--mp);
-            border: 2px solid var(--color-E);
+            border: 2px solid var(--color-F);
             border-radius: var(--np);
             background: var(--color-A);
             color: var(--color-D);
             caret-color: auto;
             text-align: center;
+            border-color: var(--color-C);
             transition: border-color 0.3s;
 
             &:focus {
                 outline: none;
-                border-color: var(--color-C);
+                border-color: var(--color-D);
             }
         }
 
         .auth-button {
             padding: var(--mp);
             margin: 0 var(--mp) var(--mp) var(--mp);
-            background: var(--color-B);
-            color: var(--color-E);
+            background: var(--color-C);
+            color: var(--color-F);
             font-weight: 600;
             border: none;
             border-radius: var(--np);

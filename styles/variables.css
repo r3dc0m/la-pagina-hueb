@@ -1,22 +1,26 @@
 :root {
-    --tone1: #F9F7F3;
-    --tone2: #D1BEB0;
-    --tone3: #a0908e;
-    --tone4: #3C4F76;
-    --tone5: #383F51;
+    --tone0: #FEF8F0;
+    --tone1: #F8EDE3;
+    --tone2: #D9C2B1;
+    --tone3: #A8937F;
+    --tone4: #5A4E47;
+    --tone5: #3A342D;
 
-    --color-A: var(--tone1);
-    --color-B: var(--tone2);
-    --color-C: var(--tone3);
-    --color-D: var(--tone4);
-    --color-E: var(--tone5);
+    --color-A: var(--tone0);
+    --color-B: var(--tone1);
+    --color-C: var(--tone2);
+    --color-D: var(--tone3);
+    --color-E: var(--tone4);
+    --color-F: var(--tone5);
     --opacity: 34%;
 
-    @media (prefers-color-scheme: light) {
+    @media (prefers-color-scheme: dark) {
         --color-A: var(--tone5);
         --color-B: var(--tone4);
+        --color-C: var(--tone3);
         --color-D: var(--tone2);
         --color-E: var(--tone1);
+        --color-F: var(--tone0);
         --opacity: 55%;
     }
 
