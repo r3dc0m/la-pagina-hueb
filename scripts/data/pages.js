@@ -1,6 +1,7 @@
-import { build } from '../components/utils.js';
+import { build, buildBlockGroup } from '../components/utils.js';
 import { login, register, getCurrentUser, logout } from '../services/authService.js';
 import { Page } from '../components/Page.js';
+import { cards } from '../data/data.js';
 
 export const Pages = {
     home: new Page({
@@ -45,6 +46,7 @@ export const Pages = {
         background: { type: 'img', src: 'assets/images/horse02.jpg', alt: 'Horse' },
         fn: (content, router, page) => {
             content.innerHTML = `<p>page: '${page.title}'<br>route: '${router.currentRoute}'</p>`;
+            buildBlockGroup('card', Object.values(cards), content, 'card-pack');
         }
     }),
     modD: new Page({

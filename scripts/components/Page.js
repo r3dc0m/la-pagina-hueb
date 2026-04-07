@@ -12,12 +12,10 @@ export class Page {
     createBackground(content) {
         if (!this.background) return;
 
-        const bgMedia = build('div', { className: 'bg-media' }, content);
-
         if (this.background.type === 'video') {
-            build('video', { src: this.background.src, attrs: { autoplay: '', muted: '', loop: '' } }, bgMedia);
+            build('video', { src: this.background.src, attrs: { autoplay: '', muted: '', loop: '' }, className: 'bg-media'}, content);
         } else {
-            build('img', { src: this.background.src, alt: this.background.alt || 'Fondo' }, bgMedia);
+            build('img', { src: this.background.src, alt: this.background.alt || 'Fondo', className: 'bg-media' }, content);
         }
     }
 

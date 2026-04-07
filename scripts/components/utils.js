@@ -68,8 +68,15 @@ export function buildIconButton(parent, { route, icon, label, size = 24 }) {
     return button;
 }
 
+export function buildBlockGroup(type, items, parent, groupClass = null) {
+    const container = build('div', { className: groupClass || `${type}-pack` }, parent);
+
+    items.forEach(item => buildBlock(type, item, container));
+    return container;
+}
+
 export function buildBlock(type, content, parent) {
-    const article = build('article', null, null, parent);
+    const article = build('article', {}, parent);
 
     switch (type) {
         case 'card':

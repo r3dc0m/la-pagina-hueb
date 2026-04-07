@@ -1,6 +1,6 @@
 import { build } from './utils.js';
 import { NavBar } from './NavBar.js';
-import { Router } from '../services/router.js';
+import { Router } from '../services/Router.js';
 
 export default class DOMmanager {
     constructor() {
@@ -18,11 +18,11 @@ export default class DOMmanager {
         this.h1 = build('h1', { text: 'La página Hueb', className: 'title' }, this.header);
 
         this.main = build('main', { className: 'main' }, this.body);
-        this.content = build('section', { className: 'content' }, this.main);
+        this.content = build('div', { className: 'content' }, this.main);
 
         this.footer = build('footer', {}, this.body);
         build('p', {
-            text: 'La página Hueb © 2026. Contenido libre de derechos (y ambidiestros). Multimedia: pixabay.com',
+            text: 'La página Hueb © 2026. Contenido libre de derechos. Multimedia: pixabay.com',
             className: 'footer-text'
         }, this.footer);
     }
