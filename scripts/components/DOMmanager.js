@@ -11,11 +11,12 @@ export default class DOMmanager {
 
     createLayout() {
         this.header = build('header', {}, this.body);
-
+        
+        this.h1 = build('h1', { text: 'La página Hueb', className: 'title' }, this.header);
+        
         this.navBar = build('nav', { className: 'nav-bar' }, this.header);
         new NavBar(this.navBar);
 
-        this.h1 = build('h1', { text: 'La página Hueb', className: 'title' }, this.header);
 
         this.main = build('main', { className: 'main' }, this.body);
         this.content = build('div', { className: 'content' }, this.main);
