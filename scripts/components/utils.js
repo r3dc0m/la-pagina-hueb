@@ -1,26 +1,5 @@
 import { icons } from '../data/data.js';
 
-const createSvg = (tag) => document.createElementNS('http://www.w3.org/2000/svg', tag);
-
-export function createSvgIcon(name, size = 24, parent) {
-    const icon = icons[name];
-    if (!icon) throw new Error(`icon ${name} not found!`);
-
-    const svg = createSvg('svg');
-    svg.setAttribute('viewBox', icon.viewBox);
-    svg.setAttribute('width', size);
-    svg.setAttribute('height', size);
-
-    const path = createSvg('path');
-    path.setAttribute('d', icon.path);
-    path.setAttribute('fill', 'currentColor');
-
-    svg.appendChild(path);
-    parent.appendChild(svg);
-
-    return svg;
-}
-
 export function build(tag, options = {}, parent) {
     const { text = null, id = null, className = null, attrs = {}, src, alt } = options;
 
@@ -49,32 +28,6 @@ export function build(tag, options = {}, parent) {
     return element;
 }
 
-
-export function buildIconButton(parent, { route, icon, label, size = 24 }) {
-    const button = build('button', {
-        className: 'nav-buttons',
-        attrs: { 'data-route': route, type: 'button' }
-    }, parent);
-
-    button.appendChild(createSvgIcon(icon, size, button));
-
-    if (label) {
-        const span = document.createElement('span');
-        span.className = 'nav-button-label';
-        span.textContent = label;
-        button.appendChild(span);
-    }
-
-    return button;
-}
-
-export function buildBlockGroup(type, items, parent, groupClass = null) {
-    const container = build('div', { className: groupClass || `${type}-pack` }, parent);
-
-    items.forEach(item => buildBlock(type, item, container));
-    return container;
-}
-
 export function buildBlock(type, content, parent) {
     const article = build('article', {}, parent);
 
@@ -97,4 +50,50 @@ export function buildBlock(type, content, parent) {
     }
 
     return article;
+}
+
+export function buildBlockGroup(type, items, parent, groupClass = null) {
+    const container = build('div', { className: groupClass || `${type}-pack` }, parent);
+
+    items.forEach(item => buildBlock(type, item, container));
+    return container;
+}
+
+const createSvg = (tag) => document.createElementNS('http://www.w3.org/2000/svg', tag);
+
+export function createSvgIcon(name, size = 24, parent) {
+    const icon = icons[name];
+    if (!icon) throw new Error(`icon ${name} not found!`);
+
+    const svg = createSvg('svg');
+    svg.setAttribute('viewBox', icon.viewBox);
+    svg.setAttribute('width', size);
+    svg.setAttribute('height', size);
+
+    const path = createSvg('path');
+    path.setAttribute('d', icon.path);
+    path.setAttribute('fill', 'currentColor');
+
+    svg.appendChild(path);
+    parent.appendChild(svg);
+
+    return svg;
+}
+
+export function buildIconButton(parent, { route, icon, label, size = 24 }) {
+    const button = build('button', {
+        className: 'nav-buttons',
+        attrs: { 'data-route': route, type: 'button' }
+    }, parent);
+
+    button.appendChild(createSvgIcon(icon, size, button));
+
+    if (label) {
+        const span = document.createElement('span');
+        span.className = 'nav-button-label';
+        span.textContent = label;
+        button.appendChild(span);
+    }
+
+    return button;
 }

@@ -10,7 +10,7 @@ export const Pages = {
         block: 'left',
         background: { type: 'video', src: 'assets/video/fryingegg.mp4' },
         fn: (content, router, page) => {
-            content.innerHTML = `<p>page: '${page.title}'<br>route: '${router.currentRoute}'</p>`;
+            buildBlock('text', { title: page.title, text: text[router.currentRoute]?.text || '' }, content);
         }
     }),
     modA: new Page({
@@ -19,7 +19,7 @@ export const Pages = {
         block: 'center',
         background: { type: 'img', src: 'assets/images/eggs01.jpg', alt: 'Huebs' },
         fn: (content, router, page) => {
-            content.innerHTML = `<p>page: '${page.title}'<br>route: '${router.currentRoute}'</p>`;
+            buildBlock('text', { title: page.title, text: text[router.currentRoute]?.text || '' }, content);
         }
     }),
     modB: new Page({
@@ -28,14 +28,16 @@ export const Pages = {
         block: 'center',
         background: { type: 'img', src: 'assets/images/roster01.jpg', alt: 'Platty' },
         fn: async (content, router, page) => {
-            content.innerHTML = '<p class="loading">Cargando felino...</p>';
+            buildBlock('text', { title: page.title, text: text[router.currentRoute]?.text || '' }, content);
+            const apiContainer = build('div', { className: 'api-container' }, content)
+            apiContainer.innerHTML = '<p class="loading">Cargando felino...</p>';
             try {
                 const response = await fetch('https://api.thecatapi.com/v1/images/search');
                 const data = await response.json();
-                content.innerHTML = '' && data;
-                build('img', { className: 'api-img', src: data[0].url, alt: 'Un gato distinto' }, content)
+                apiContainer.innerHTML = '' && data;
+                build('img', { className: 'api-img', src: data[0].url, alt: 'Un gato distinto' }, apiContainer)
             } catch (error) {
-                content.innerHTML = `<p>Error: ${error}</p>`;
+                apiContainer.innerHTML = `<p>Error: ${error}</p>`;
             }
         }
     }),
@@ -45,7 +47,7 @@ export const Pages = {
         block: 'center',
         background: { type: 'img', src: 'assets/images/horse02.jpg', alt: 'Horse' },
         fn: (content, router, page) => {
-            buildBlock('text', { title: page.title, text: text[router.currentRoute]?.text || ''}, content); 
+            buildBlock('text', { title: page.title, text: text[router.currentRoute]?.text || '' }, content);
             buildBlockGroup('card', Object.values(cards), content, 'card-pack');
         }
     }),
@@ -55,7 +57,7 @@ export const Pages = {
         block: 'center',
         background: { type: 'img', src: 'assets/images/egg01.jpg', alt: 'Hueb' },
         fn: (content, router, page) => {
-            content.innerHTML = `<p>page: '${page.title}'<br>route: '${router.currentRoute}'</p>`;
+            buildBlock('text', { title: page.title, text: text[router.currentRoute]?.text || '' }, content);
         }
     }),
     user: new Page({
@@ -64,6 +66,7 @@ export const Pages = {
         block: 'right',
         background: { type: 'img', src: 'assets/images/eggs04.jpg', alt: 'Huebs' },
         fn: (content, router, page) => {
+            buildBlock('text', { title: page.title, text: text[router.currentRoute]?.text || '' }, content);
             const currentUser = getCurrentUser();
             if (currentUser) {
                 content.innerHTML += `
