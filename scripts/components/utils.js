@@ -1,4 +1,4 @@
-import { icons } from '../data/icons.js';
+import { icons } from '../data/data.js';
 
 const createSvg = (tag) => document.createElementNS('http://www.w3.org/2000/svg', tag);
 

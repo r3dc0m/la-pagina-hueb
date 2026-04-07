@@ -198,3 +198,12 @@ created: 2026-04-04
 due: 
 
 REQ: mermaid charts, scope, feature list.
+
+## [FEAT] Save cat image link to localStorage
+id: task-1775512945054-c0637dd8
+status: todo
+priority: low
+created: 2026-04-06
+due: 
+
+REQ: just save cat image to local storage so it can draw back.
