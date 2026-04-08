@@ -16,6 +16,7 @@ export function build(tag, options = {}, parent) {
         if (alt) element.alt = alt;
     }
     if (text !== null && text !== undefined) {
+        element.style.whiteSpace = 'pre-line';
         element.textContent = text;
     }
 
@@ -43,7 +44,7 @@ export function buildBlock(type, content, parent) {
 
             const userInfo = build('div', { className: 'review-user' }, article);
             build('p', { text: content.username, className: 'review-username' }, userInfo);
-            build('p', { text: '★★★★☆', className: 'review-stars' }, userInfo);
+            build('p', { text: content.rating, className: 'review-stars' }, userInfo);
             build('p', { text: content.comment, className: 'review-comment' }, article);
             break;
 

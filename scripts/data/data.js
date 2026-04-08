@@ -1,109 +1,138 @@
 export const cards = {
     card01: {
-        image: '/assets/images/brokenegg.jpg',
-        title: 'card01',
-        description: 'hello world'
+        image: '/assets/images/egg02.jpg',
+        title: '¿Cuál es el origen de la Hueb y por qué sólo queda una?',
+        description: 'Antes había dos. El cómo vinieron nunca se supo.'
     },
     card02: {
-        image: '/assets/images/brokenegg.jpg',
-        title: 'card02',
-        description: 'hello world'
+        image: '/assets/images/eggs05.jpg',
+        title: '¿Está la Hueb completamente frita?',
+        description: 'Los expertos dicen que sí. ¿Y si no?'
     },
     card03: {
-        image: '/assets/images/brokenegg.jpg',
-        title: 'card03',
-        description: 'hello world'
+        image: '/assets/images/eggs06.jpg',
+        title: '¿Cómo afecta la HIA (Hueb de Inducción Accelerada) cara al futuro para las sartenes ordinarias?',
+        description: 'No hay mucha diferencia, si es que la hubiera.'
     },
     card04: {
-        image: '/assets/images/brokenegg.jpg',
-        title: 'card04',
-        description: 'hello world'
-    }, 
+        image: '/assets/images/omelet.jpg',
+        title: 'Los peligros de la tortilla: los datos que usó la Hueb nunca llegaron a ser válidos.',
+        description: 'Aceite de oliva o de girasol, con cebolla o sin cebolla, con sal o sin sal. Nadie tiene nada claro, y no hay ninguna que se parezca a la anterior.'
+    },
     card05: {
-        image: '/assets/images/brokenegg.jpg',
-        title: 'card01',
-        description: 'hello world'
+        image: '/assets/images/chick-face2face.jpg',
+        title: 'Testimonios acerca de la Hueb, que hacen pensar un poco.',
+        description: '¿Entonces qué hacemos?'
     },
     card06: {
-        image: '/assets/images/brokenegg.jpg',
-        title: 'card02',
-        description: 'hello world'
+        image: '/assets/images/chickenegg01.jpg',
+        title: 'Ciencia: ¿Qué secretos ocultan los galliformes al estar sentados? En exclusiva, se lo revelaremos a su debido tiempo.',
+        description: 'Y si precisa.'
     },
     card07: {
-        image: '/assets/images/brokenegg.jpg',
-        title: 'card03',
-        description: 'hello world'
-    },
-    card08: {
-        image: '/assets/images/brokenegg.jpg',
-        title: 'card04',
-        description: 'hello world'
-    }, 
-    card09: {
-        image: '/assets/images/brokenegg.jpg',
-        title: 'card01',
-        description: 'hello world'
-    },
-    card10: {
-        image: '/assets/images/brokenegg.jpg',
-        title: 'card02',
-        description: 'hello world'
-    },
-    card11: {
-        image: '/assets/images/brokenegg.jpg',
-        title: 'card03',
-        description: 'hello world'
-    },
-    card12: {
-        image: '/assets/images/brokenegg.jpg',
-        title: 'card04',
-        description: 'hello world'
-    },
+        image: '/assets/images/eggs07.jpg',
+        title: 'Las Huebs cocidas repercuten en las superficies duras. ¡Tomémos acción! ¡O no!',
+        description: 'A veces una Hueb rota se puede reaprovechar, y a veces no.'
+    }
 }
 
 export const reviews = {
     review01: {
-        avatar: '/assets/images/profiles/profile_car.jpg',
-        username: 'Usuario01',
-        rating: 4,
-        comment: '¡Me encantan los huebs!'
+        avatar: '/assets/images/profiles/profile_grasshopper.jpg',
+        username: 'José',
+        rating: '● ● ○',
+        comment: '"Desde que sé que sólo existe una Hueb, mi vida a cambiado por completo."'
     },
     review02: {
-        avatar: '/assets/images/profiles/profile_car.jpg',
-        username: 'Usuario02',
-        rating: 4,
-        comment: '¡Me encantan los huebs!'
+        avatar: '/assets/images/profiles/profile_frog.jpg',
+        username: 'María García',
+        rating: '■ ■ ■ □',
+        comment: '"Antes pensaba una cosa, y ahora pienso otra."'
     },
     review03: {
+        avatar: '/assets/images/profiles/profile_kameleon.jpg',
+        username: 'Carlos L.',
+        rating: '⬡ ⬡ ⬢ ⬢',
+        comment: '"Yo ya no puedo mirar a la Hueb con los mismos ojos."'
+    },
+    review04: {
+        avatar: '/assets/images/profiles/profile_dog_03.jpg',
+        username: 'Amónimo',
+        rating: '◆ ◆ ◆ ◆ ◇',
+        comment: '"Gracias."'
+    },
+    review05: {
         avatar: '/assets/images/profiles/profile_car.jpg',
-        username: 'Usuario03',
-        rating: 4,
-        comment: '¡Me encantan los huebs!'
+        username: 'notevoyadecir',
+        rating: '🛆',
+        comment: '"Yo no estoy contenta.\nLlamé y me dijeron que mi responsabilidad es asumir mis propias decisiones.\n¡Os pongo un triángulo porque no deja poner menos, que lo sepáis!"'
+    },
+    review06: {
+        avatar: '/assets/images/profiles/profile_dog_02.jpg',
+        username: 'futurman',
+        rating: '■ ■ ■ □ □',
+        comment: '"Yo le he puesto tres cuadrados porque cinco ya me parecía mucho para lo que es."'
+    },
+    review07: {
+        avatar: '/assets/images/profiles/profile_dog_03.jpg',
+        username: 'Amónimo',
+        rating: '◆ ◆ ◆ ◆ ◆',
+        comment: '"La entrega y todo bien. Confío mucho en la Hueb. Por ahora."'
+    },
+    review08: {
+        avatar: '/assets/images/profiles/profile_swan.jpg',
+        username: 'Marta L ego',
+        rating: '⬡ ⬡ ⬡ ⬢ ⬢',
+        comment: '"Yo ya sabía que había más cosas más allá de la Hueb. Pero nadie me escuchó, como siempre..."'
+    },
+    review09: {
+        avatar: '/assets/images/profiles/profile_gorila.jpg',
+        username: 'Txema Gonzalez Rivas',
+        rating: '⬡ ⬡ ⬢ ⬢ ⬢',
+        comment: '"En los tiempos de mi abuelo, no había Hueb y estábamos igual que ahora.\nDa que pensar..."'
+    },
+    review10: {
+        avatar: '/assets/images/profiles/profile_rabbit.jpg',
+        username: 'edu paris',
+        rating: '● ○ ○ ○ ○',
+        comment: '"Yo no me creo nada de lo que dice esta gente. Las cosas se han hecho así desde siempre. Si muchos expertos lo dicen ¿tendrá que significar algo, no? Para eso estudian. ¿O no?"'
+    },
+    review11: {
+        avatar: '/assets/images/profiles/profile_dog_01.jpg',
+        username: 'Amgine',
+        rating: '⬟ ⬠ ⬠ ⬠ ⬟',
+        comment: '"¡Me encantan los huebs!"'
+    },
+    review12: {
+        avatar: '/assets/images/profiles/profile_cat.jpg',
+        username: 'Mitxetún',
+        rating: '★ ★ ★ ★ ★',
+        comment: '"Yo ya. Gracias."'
     }
 }
 
 export const text = {
     home: {
-        text: 'There is a very good description of it.'
+        text: 'Bienvenido a la página Hueb, donde sólo puede haber una y no dos\nAquí encontrará toda la información que necesita en el día a día sobre la Hueb: de dónde viene, a dónde va, por qué está ahí y muchas otras cuestiones a las que nunca encontró respuesta, hasta que sí'
     },
     modA: {
-        text: 'There is a very good description of it.'
+        text: 'Uno no sabe qué puede pasar a lo largo de una Hueb. Hoy está aquí y mañana no se sabe'
     },
     modB: {
-        text: 'There is a very good description of it.'
+        text: 'Desde tiempos desconocidos, hemos utilizado la Hueb para pretender que eran tiempos conocidos'
     },
     modC: {
-        text: 'There is a very good description of it.'
+        text: 'Con tantas preguntas pendientes, ¿en qué podemos refugiarnos? Sin duda tendemos a optar por lo fácil y que nos permite no cuestionar nada. Pero, ¿nos conviene?'
     },
     modD: {
-        text: 'There is a very good description of it.'
+        text: 'El evento único que nadie sabe explicar'
     },
     user: {
-        text: 'There is a very good description of it.'
+        text: 'Inicie sesión o cree una cuenta para no ser un extraño'
     },
     dummytext: {
-        title: 'My header hurts right now.',
-        text: 'There is a very good description of it.'
+        title: 'My header hurts right now',
+        text: 'There is a very good description of it'
     }
 }
 

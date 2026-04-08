@@ -16,7 +16,7 @@ FIX: router.js -> manages navigation through pages.js.
 
 ## [CORE] Build API logic
 id: task-1775181417500-6f638950
-status: in-progress
+status: review
 priority: high
 created: 2026-04-03
 due: 
@@ -36,7 +36,7 @@ Changes size and color for buttons on mouse hover within CSS.
 
 ## [UI] Add feedback cards
 id: task-1775181541770-603bff97
-status: todo
+status: done
 priority: low
 created: 2026-04-03
 due: 
@@ -45,7 +45,7 @@ REQ: Aesthetics. Depends on styles and content load.
 
 ## [FEAT] Add content through file object
 id: task-1775181604659-1ec47ea3
-status: todo
+status: review
 priority: low
 created: 2026-04-03
 due: 
@@ -84,7 +84,7 @@ FIX: styles.css media query hides button label based on class.
 
 ## [CORE] User login
 id: task-1775187701352-becbd6c6
-status: in-progress
+status: review
 priority: medium
 created: 2026-04-03
 due: 
@@ -136,7 +136,7 @@ REVIEW: min-height needed?
 
 ## [NAV] Create Pages & Router class
 id: task-1775234008686-3dc8b1d5
-status: review
+status: done
 priority: high
 created: 2026-04-03
 due: 2026-04-02
@@ -146,7 +146,7 @@ FIX: router.js -> includes async render on function navigate.
 
 ## [UI] Refactor auth form styles
 id: task-1775297431958-4359161f
-status: todo
+status: in-progress
 priority: low
 created: 2026-04-04
 due: 
@@ -165,7 +165,7 @@ FIX: Delivered.
 
 ## [UI] Background media auto assign
 id: task-1775344739965-5c3f0ec3
-status: todo
+status: done
 priority: medium
 created: 2026-04-04
 due: 
@@ -192,7 +192,7 @@ REQ: remove unused media.
 
 ## [DOC] General documentation
 id: task-1775344931356-3eef88cb
-status: todo
+status: in-progress
 priority: low
 created: 2026-04-04
 due: 
@@ -207,3 +207,30 @@ created: 2026-04-06
 due: 
 
 REQ: just save cat image to local storage so it can draw back.
+
+## [FEAT] API button disabled while fetch not complete
+id: task-1775656867316-59a0e4f5
+status: todo
+priority: medium
+created: 2026-04-08
+due: 
+
+REQ: Disable API button while fetch not complete.
+
+## [CORE] localStorage handler
+id: task-1775656942251-52823fb2
+status: todo
+priority: medium
+created: 2026-04-08
+due: 
+
+REQ: need 2 new key changes. One for current image returned on API. Second for user score. Save content to user once logged or registered.
+
+## [UI] Refactor packs and nest group as redundant
+id: task-1775657036216-aba24b35
+status: in-progress
+priority: medium
+created: 2026-04-08
+due: 
+
+REQ: refactor styles for card and review packs.

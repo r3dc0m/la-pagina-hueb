@@ -34,7 +34,7 @@ export const Pages = {
             const apiContainer = build('div', { className: 'api-img api-loading' }, content);
             const loadCat = async () => {
                 catButton.disabled = true;
-                apiContainer.innerHTML = '<p class="loading">Cargando felino...</p>';
+                apiContainer.innerHTML = '<p class="loading">Abriendo una lata de atún...</p>';
                 try {
                     const response = await fetch('https://api.thecatapi.com/v1/images/search');
                     const data = await response.json();

@@ -16,11 +16,12 @@ html {
     h1,
     h2,
     h3 {
+        text-align: center;
         &:not(p) {
-            text-align: center;
+            margin: 0;
         }
 
-        margin: 0;
+        margin: 0 var(--np)
     }
 }
 
@@ -120,6 +121,7 @@ main {
         height: stretch;
 
         .api-img {
+            align-content: center;
             border-radius: var(--mp);
             box-shadow: var(--shadow);
             width: 100%;
@@ -213,17 +215,21 @@ main {
         justify-content: center;
 
         .review-article {
-            min-width: 0;
-            flex: 1 1 300px;
 
-            display: grid;
-            grid-template-columns: 55px 1fr;
-            grid-template-rows: max-content auto;
-            gap: 0 var(--np);
-            background: var(--color-B);
+            min-width: 0;
+            flex: 1 1 377px;
+            background: var(--color-A);
             padding: var(--np);
             border-radius: 12px;
             align-items: flex-start;
+
+            @media (min-width: 768px) {
+                display: grid;
+                grid-template-columns: 55px 1fr;
+                grid-template-rows: max-content auto;
+                gap: 0 var(--np);
+
+            }
 
             .review-avatar {
                 grid-column: 1;
@@ -234,6 +240,16 @@ main {
                 border-radius: 50%;
                 object-fit: cover;
                 border: 3px solid var(--color-E);
+
+                @media (max-width: 768px) {
+                    display: none;
+                    width: 0;
+                    height: 0;
+                }
+            }
+
+            * {
+                text-align: left !important;
             }
 
             .review-user {
@@ -248,7 +264,7 @@ main {
                 }
 
                 .review-stars {
-                    color: var(--color-D);
+                    color: var(--color-C);
                     margin: 0;
                 }
             }
