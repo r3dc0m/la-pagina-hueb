@@ -152,7 +152,7 @@ footer {
     align-items: center;
 
     .text-article {
-        margin : var(--mp);
+        margin: var(--mp);
         width: 100vw;
         display: flex;
         flex-direction: column;
@@ -269,7 +269,7 @@ footer {
 
             &:focus {
                 outline: none;
-                border-color: var(--color-);
+                border-color: var(--color-D);
             }
         }
     }
