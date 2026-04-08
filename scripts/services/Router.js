@@ -9,8 +9,13 @@ export class Router {
 
     init() {
         this.nav.querySelectorAll('[data-route]').forEach(btn => {
-            btn.addEventListener('click', () => this.navigate(btn.dataset.route))
-        })
+            btn.addEventListener('click', () => {
+                const targetRoute = btn.dataset.route;
+                if (targetRoute !== this.currentRoute) {
+                    this.navigate(targetRoute);
+                }
+            });
+        });
         this.navigate('home');
     }
 

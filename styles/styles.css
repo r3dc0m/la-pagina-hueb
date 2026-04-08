@@ -16,7 +16,10 @@ html {
     h1,
     h2,
     h3 {
-        &:not(p) {text-align: center;}
+        &:not(p) {
+            text-align: center;
+        }
+
         margin: 0;
     }
 }
@@ -127,7 +130,8 @@ main {
             margin: 0 auto;
             display: block;
             background-color: var(--color-C);
-            img{
+
+            img {
                 border: 2px solid var(--color-D);
             }
         }
