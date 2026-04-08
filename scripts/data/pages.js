@@ -29,7 +29,7 @@ export const Pages = {
         background: { type: 'img', src: 'assets/images/roster01.jpg', alt: 'Platty' },
         fn: async (content, router, page) => {
             buildBlock('text', { title: page.title, text: text[router.currentRoute]?.text || '' }, content);
-            const catButton = build('button', { className: 'cat-button', text: 'Mostrar felino' }, content);
+            const catButton = build('button', { className: 'validate-button', text: 'Mostrar felino' }, content);
             const apiContainer = build('div', { className: 'api-img api-loading' }, content);
             const loadCat = async () => {
                 catButton.disabled = true;
@@ -79,9 +79,9 @@ export const Pages = {
                 content.innerHTML += `
                 <section id="auth">
                     <p class="auth-text">No sé quién eres, ${currentUser.username}.</p>
-                    <button class="auth-button">Desconectar, por favor.</button>
+                    <button class="validate-button">Desconectar, por favor.</button>
                 </section>`;
-                const logoutBtn = content.querySelector('.auth-button');
+                const logoutBtn = content.querySelector('.validate-button');
                 logoutBtn.addEventListener('click', () => {
                     logout();
                     router.navigate('user');
@@ -97,14 +97,14 @@ export const Pages = {
                         <input type="text" id="username" placeholder="Usuario" required autocomplete="off">
                         <input type="password" id="password" placeholder="Contraseña" required autocomplete="off">
                         <p class="auth-text"></p>
-                        <button type="submit" class="auth-button">Entrar</button>
+                        <button type="submit" class="validate-button">Entrar</button>
                     </form>
                 </section>`;
 
                 const form = content.querySelector('#auth');
                 const username = content.querySelector('#username');
                 const password = content.querySelector('#password');
-                const submit = content.querySelector('.auth-button');
+                const submit = content.querySelector('.validate-button');
                 const tabs = content.querySelectorAll('.auth-tab');
                 const status = content.querySelector('.auth-text');
 
