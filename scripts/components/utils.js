@@ -29,7 +29,7 @@ export function build(tag, options = {}, parent) {
 }
 
 export function buildBlock(type, content, parent) {
-    const article = build('article', {}, parent);
+    const article = build('article', {className : `${type}-article`}, parent);
 
     switch (type) {
         case 'card':

@@ -29,16 +29,23 @@ export const Pages = {
         background: { type: 'img', src: 'assets/images/roster01.jpg', alt: 'Platty' },
         fn: async (content, router, page) => {
             buildBlock('text', { title: page.title, text: text[router.currentRoute]?.text || '' }, content);
-            const apiContainer = build('div', { className: 'api-container' }, content)
-            apiContainer.innerHTML = '<p class="loading">Cargando felino...</p>';
-            try {
-                const response = await fetch('https://api.thecatapi.com/v1/images/search');
-                const data = await response.json();
-                apiContainer.innerHTML = '' && data;
-                build('img', { className: 'api-img', src: data[0].url, alt: 'Un gato distinto' }, apiContainer)
-            } catch (error) {
-                apiContainer.innerHTML = `<p>Error: ${error}</p>`;
+            const catButton = build('button', { className: 'cat-button', text: 'Mostrar felino' }, content);
+            const apiContainer = build('div', { className: 'api-img api-loading' }, content);
+            const loadCat = async () => {
+                catButton.disabled = true;
+                apiContainer.innerHTML = '<p class="loading">Cargando felino...</p>';
+                try {
+                    const response = await fetch('https://api.thecatapi.com/v1/images/search');
+                    const data = await response.json();
+                    apiContainer.innerHTML = '' && data;
+                    build('img', { className: 'api-img', src: data[0].url, alt: 'Un gato distinto' }, apiContainer)
+                } catch (error) {
+                    apiContainer.innerHTML = `<p>Error: ${error}</p>`;
+                } finally {
+                    catButton.disabled = false;
+                }
             }
+            catButton.addEventListener('click', loadCat);
         }
     }),
     modC: new Page({
