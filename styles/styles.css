@@ -202,7 +202,67 @@ main {
             }
         }
     }
+
+    .review-pack {
+        width: calc(100% - (var(--mp) * 2));
+        margin: 0 var(--mp);
+        gap: var(--mp);
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+
+        .review-article {
+            min-width: 0;
+            flex: 1 1 300px;
+
+            display: grid;
+            grid-template-columns: 55px 1fr;
+            grid-template-rows: max-content auto;
+            gap: 0 var(--np);
+            background: var(--color-B);
+            padding: var(--np);
+            border-radius: 12px;
+            align-items: flex-start;
+
+            .review-avatar {
+                grid-column: 1;
+                grid-row: 1 / span 2;
+                flex-shrink: 0;
+                width: 55px;
+                height: 55px;
+                border-radius: 50%;
+                object-fit: cover;
+                border: 3px solid var(--color-E);
+            }
+
+            .review-user {
+                grid-column: 2;
+                grid-row: 1;
+                display: flex;
+                flex-direction: column;
+
+                .review-username {
+                    font-weight: 610;
+                    margin: 0;
+                }
+
+                .review-stars {
+                    color: var(--color-D);
+                    margin: 0;
+                }
+            }
+
+            .review-comment {
+                grid-column: 2;
+                grid-row: 2;
+                line-height: 1.618;
+                margin: 0;
+            }
+        }
+    }
 }
+
 
 footer {
     display: flex;

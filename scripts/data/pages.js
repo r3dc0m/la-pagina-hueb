@@ -1,7 +1,7 @@
 import { build, buildBlock, buildBlockGroup } from '../components/utils.js';
 import { login, register, getCurrentUser, logout } from '../services/authService.js';
 import { Page } from '../components/Page.js';
-import { cards, text } from '../data/data.js';
+import { cards, text, reviews } from '../data/data.js';
 
 export const Pages = {
     home: new Page({
@@ -20,6 +20,7 @@ export const Pages = {
         background: { type: 'img', src: 'assets/images/eggs01.jpg', alt: 'Huebs' },
         fn: (content, router, page) => {
             buildBlock('text', { title: page.title, text: text[router.currentRoute]?.text || '' }, content);
+            buildBlockGroup('review', Object.values(reviews), content, 'review-pack');
         }
     }),
     modB: new Page({
@@ -29,7 +30,7 @@ export const Pages = {
         background: { type: 'img', src: 'assets/images/roster01.jpg', alt: 'Platty' },
         fn: async (content, router, page) => {
             buildBlock('text', { title: page.title, text: text[router.currentRoute]?.text || '' }, content);
-            const catButton = build('button', { className: 'validate-button', text: 'Mostrar felino' }, content);
+            const catButton = build('button', { className: 'validate-button', text: 'Capturar felino' }, content);
             const apiContainer = build('div', { className: 'api-img api-loading' }, content);
             const loadCat = async () => {
                 catButton.disabled = true;

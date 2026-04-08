@@ -29,7 +29,7 @@ export function build(tag, options = {}, parent) {
 }
 
 export function buildBlock(type, content, parent) {
-    const article = build('article', {className : `${type}-article`}, parent);
+    const article = build('article', { className: `${type}-article` }, parent);
 
     switch (type) {
         case 'card':
@@ -39,6 +39,11 @@ export function buildBlock(type, content, parent) {
             break;
 
         case 'review':
+            build('img', { src: content.avatar, alt: content.username, className: 'review-avatar' }, article);
+
+            const userInfo = build('div', { className: 'review-user' }, article);
+            build('p', { text: content.username, className: 'review-username' }, userInfo);
+            build('p', { text: '★★★★☆', className: 'review-stars' }, userInfo);
             build('p', { text: content.comment, className: 'review-comment' }, article);
             break;
 

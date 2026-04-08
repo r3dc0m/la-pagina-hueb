@@ -14,7 +14,7 @@
     --color-F: var(--tone5);
     --opacity: 34%;
 
-    @media (prefers-color-scheme: light) {
+    @media (prefers-color-scheme: dark) {
         --color-A: var(--tone5);
         --color-B: var(--tone4);
         --color-C: var(--tone3);

@@ -63,19 +63,19 @@ export const cards = {
 
 export const reviews = {
     review01: {
-        avatar: '/assets/images/profiles/prfile_car.jpg',
+        avatar: '/assets/images/profiles/profile_car.jpg',
         username: 'Usuario01',
         rating: 4,
         comment: '¡Me encantan los huebs!'
     },
     review02: {
-        avatar: '/assets/images/profiles/prfile_car.jpg',
+        avatar: '/assets/images/profiles/profile_car.jpg',
         username: 'Usuario02',
         rating: 4,
         comment: '¡Me encantan los huebs!'
     },
     review03: {
-        avatar: '/assets/images/profiles/prfile_car.jpg',
+        avatar: '/assets/images/profiles/profile_car.jpg',
         username: 'Usuario03',
         rating: 4,
         comment: '¡Me encantan los huebs!'
