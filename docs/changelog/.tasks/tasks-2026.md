@@ -234,3 +234,12 @@ created: 2026-04-08
 due: 
 
 REQ: refactor styles for card and review packs.
+
+## [BUG] mobile version has a bottom scrollbar
+id: task-1775660053632-716ebfea
+status: todo
+priority: medium
+created: 2026-04-08
+due: 
+
+REQ: Fix
