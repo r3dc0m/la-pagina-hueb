@@ -25,3 +25,7 @@ export function clearCurrentUser() {
 export function setCurrentUser(username) {
     localStorage.setItem(CURRENT_USER_KEY, username);
 }
+
+export function getCurrentUser() {
+    return localStorage.getItem(CURRENT_USER_KEY);
+}

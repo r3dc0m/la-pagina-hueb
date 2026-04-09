@@ -1,5 +1,6 @@
 import { build, buildBlock, buildBlockGroup } from '../components/utils.js';
-import { login, register, getCurrentUser, logout } from '../services/authService.js';
+import { login, register, logout } from '../services/authService.js';
+import { getCurrentUser } from '../services/storageService.js';
 import { Page } from '../components/Page.js';
 import { cards, text, reviews } from '../data/data.js';
 
