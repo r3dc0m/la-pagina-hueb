@@ -31,8 +31,8 @@ export const Pages = {
         background: { type: 'img', src: 'assets/images/roster01.jpg', alt: 'Platty' },
         fn: async (content, router, page) => {
             buildBlock('text', { title: page.title, text: text[router.currentRoute]?.text || '' }, content);
-            const catButton = build('button', { className: 'validate-button', text: 'Capturar felino' }, content);
             const apiContainer = build('div', { className: 'api-img api-loading' }, content);
+            const catButton = build('button', { className: 'validate-button', text: 'Capturar felino' }, content);
             const session = getSession();
             if (session.activeImage) {
                 apiContainer.innerHTML = '';
@@ -92,7 +92,7 @@ export const Pages = {
             if (currentUser) {
                 content.innerHTML += `
                 <section id="auth">
-                    <p class="auth-text">No sé quién eres, ${currentUser.username}.</p>
+                    <p class="auth-text">No sé quién eres, ${currentUser}.</p>
                     <button class="validate-button">Desconectar, por favor.</button>
                 </section>`;
                 const logoutBtn = content.querySelector('.validate-button');
