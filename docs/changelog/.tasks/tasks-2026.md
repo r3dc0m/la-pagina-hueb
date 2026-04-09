@@ -210,7 +210,7 @@ REQ: just save cat image to local storage so it can draw back.
 
 ## [FEAT] API button disabled while fetch not complete
 id: task-1775656867316-59a0e4f5
-status: todo
+status: review
 priority: medium
 created: 2026-04-08
 due: 
@@ -281,3 +281,10 @@ id: task-1775741081077-572ae086
 status: todo
 priority: medium
 created: 2026-04-09
+
+## [ISSUE] background isn't loading fast enough on pages and home video not auto playing on mobile devices. Perhaps add a fallback image for mobile.
+id: task-1775744629006-357cb6f3
+status: todo
+priority: high
+created: 2026-04-09
+due: 
