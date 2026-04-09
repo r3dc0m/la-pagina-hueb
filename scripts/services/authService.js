@@ -1,5 +1,4 @@
-import { getUser, saveUser, clearCurrentUser, setCurrentUser } from './storageService.js'
-const STORAGE_KEY_PREFIX = "huebUser:";
+import { USER_PREFIX_KEY, getUser, saveUser, clearCurrentUser, setCurrentUser, createEmptyUserData } from './storageService.js'
 
 export function login(username, password) {
     const user = getUser(username);
@@ -11,18 +10,17 @@ export function login(username, password) {
 }
 
 export function register(username, password) {
-    const key = STORAGE_KEY_PREFIX + username;
+    const key = USER_PREFIX_KEY + username;
     if (localStorage.getItem(key)) return false;
 
     const user = {
         username,
         password,
-        data: {}
+        data: createEmptyUserData()
     };
 
     saveUser(user);
     setCurrentUser(username);
-
     return true;
 }
 

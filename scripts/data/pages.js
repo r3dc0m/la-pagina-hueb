@@ -1,6 +1,6 @@
 import { build, buildBlock, buildBlockGroup } from '../components/utils.js';
 import { login, register, logout } from '../services/authService.js';
-import { getCurrentUser } from '../services/storageService.js';
+import { getCurrentUser, getSession, setSession } from '../services/storageService.js';
 import { Page } from '../components/Page.js';
 import { cards, text, reviews } from '../data/data.js';
 
@@ -33,14 +33,26 @@ export const Pages = {
             buildBlock('text', { title: page.title, text: text[router.currentRoute]?.text || '' }, content);
             const catButton = build('button', { className: 'validate-button', text: 'Capturar felino' }, content);
             const apiContainer = build('div', { className: 'api-img api-loading' }, content);
+            const session = getSession();
+            if (session.activeImage) {
+                apiContainer.innerHTML = '';
+                build('img', { className: 'api-img', src: session.activeImage, alt: 'Un gato distinto' }, apiContainer);
+            }
+
             const loadCat = async () => {
                 catButton.disabled = true;
                 apiContainer.innerHTML = '<p class="loading">Abriendo una lata de atún...</p>';
                 try {
                     const response = await fetch('https://api.thecatapi.com/v1/images/search');
                     const data = await response.json();
-                    apiContainer.innerHTML = '' && data;
-                    build('img', { className: 'api-img', src: data[0].url, alt: 'Un gato distinto' }, apiContainer)
+
+                    const url = data[0].url;
+                    const format = url.split('.').pop().split('?')[0].toLowerCase();
+
+                    apiContainer.innerHTML = '';
+                    build('img', { className: 'api-img', src: url, alt: 'Un gato distinto' }, apiContainer);
+                    setSession(url, format);
+
                 } catch (error) {
                     apiContainer.innerHTML = `<p>Error: ${error}</p>`;
                 } finally {
