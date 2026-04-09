@@ -18,6 +18,10 @@ export function saveUser(user) {
     write(USER_PREFIX + user.username, user);
 }
 
-export function clearCurrentUsername() {
+export function clearCurrentUser() {
     localStorage.removeItem(CURRENT_USER_KEY);
+}
+
+export function setCurrentUser(username) {
+    localStorage.setItem(CURRENT_USER_KEY, username);
 }

@@ -201,7 +201,7 @@ REQ: mermaid charts, scope, feature list.
 
 ## [FEAT] Save cat image link to localStorage
 id: task-1775512945054-c0637dd8
-status: todo
+status: in-progress
 priority: low
 created: 2026-04-06
 due: 
@@ -219,7 +219,7 @@ REQ: Disable API button while fetch not complete.
 
 ## [CORE] localStorage handler
 id: task-1775656942251-52823fb2
-status: todo
+status: in-progress
 priority: medium
 created: 2026-04-08
 due: 
@@ -237,7 +237,7 @@ REQ: refactor styles for card and review packs.
 
 ## [BUG] mobile version has a bottom scrollbar
 id: task-1775660053632-716ebfea
-status: todo
+status: in-progress
 priority: medium
 created: 2026-04-08
 due: 
@@ -259,6 +259,25 @@ due:
 
 ## [FEAT] Auth message update on no user
 id: task-1775722619892-d8f1f768
+status: todo
+priority: low
+created: 2026-04-09
+
+## [FEAT] Delete account option?
+id: task-1775740856749-56eafe57
+status: todo
+priority: low
+created: 2026-04-09
+due:
+
+## [UI] Change button shape on mousedown.
+id: task-1775741057080-192c5dca
+status: todo
+priority: medium
+created: 2026-04-09
+
+## [UI] Change account color on status logged in to green?
+id: task-1775741081077-572ae086
 status: todo
 priority: medium
 created: 2026-04-09
