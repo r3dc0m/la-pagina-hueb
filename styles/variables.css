@@ -26,5 +26,5 @@
 
     --np: 1.618rem;
     --mp: 0.618rem;
-    --shadow: 0px 5px 21px rgb(0, 0, 0, var(--opacity));
+    --shadow: 0px 2px 5px rgb(0, 0, 0, var(--opacity));
 }

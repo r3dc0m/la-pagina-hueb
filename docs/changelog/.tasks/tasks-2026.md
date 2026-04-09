@@ -243,3 +243,22 @@ created: 2026-04-08
 due: 
 
 REQ: Fix
+
+## [NAV] Go to last page from localStorage when login in/out?
+id: task-1775665299710-358b0540
+status: todo
+priority: medium
+created: 2026-04-08
+
+## [UI] Adjust page title H2 to card max width
+id: task-1775720233003-6da0ecfb
+status: todo
+priority: low
+created: 2026-04-09
+due:
+
+## [FEAT] Auth message update on no user
+id: task-1775722619892-d8f1f768
+status: todo
+priority: medium
+created: 2026-04-09

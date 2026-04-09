@@ -7,22 +7,12 @@ html {
     overflow-y: auto;
     min-width: 144px;
     min-height: 233px;
+    width: 100%;
+    max-width: 100%;
     font-family: 'Funnel Sans', 'Segoe UI', 'Helvetica Neue', sans-serif;
     font-size: 100%;
     caret-color: transparent;
     color: var(--color-E);
-
-    p,
-    h1,
-    h2,
-    h3 {
-        text-align: center;
-        &:not(p) {
-            margin: 0;
-        }
-
-        margin: 0 var(--np)
-    }
 }
 
 body {
@@ -32,6 +22,21 @@ body {
     flex-direction: column;
     flex-shrink: 1;
     background-color: var(--color-A);
+    width: 100%;
+    overflow-x: hidden;
+
+    p,
+    h1,
+    h2,
+    h3 {
+        text-align: center;
+
+        &:not(p) {
+            margin: 0;
+        }
+
+        margin: 0 var(--np)
+    }
 
     .validate-button {
         padding: var(--mp);
@@ -120,6 +125,11 @@ main {
         width: min(987px, 100%);
         height: stretch;
 
+        &>*,
+        &>*>* {
+            gap: var(--mp)
+        }
+
         .api-img {
             align-content: center;
             border-radius: var(--mp);
@@ -157,13 +167,26 @@ main {
     width: 100%;
     display: flex;
     flex-direction: column;
-    gap: var(--mp);
     align-items: center;
+
+    .card-pack,
+    .review-pack {
+        width: calc(100% - (var(--mp) * 2));
+        margin: 0 var(--mp);
+
+        article {
+            box-shadow: var(--shadow);
+            background: var(--color-B);
+            min-width: 0;
+            align-items: center;
+            border-radius: var(--mp);
+            p {line-height: 1.618;}
+        }
+    }
 
     .text-article {
         padding: var(--mp);
-        margin: 0 var(--mp);
-        gap: var(--mp);
+        margin: 0;
         border-bottom: 1px solid var(--color-E);
         width: 100vw;
         display: flex;
@@ -173,23 +196,16 @@ main {
     }
 
     .card-pack {
-        width: calc(100% - (var(--mp) * 2));
-        margin: 0 var(--mp);
-        gap: var(--mp);
         display: flex;
         flex-direction: row;
         flex-wrap: wrap;
         justify-content: center;
 
-        article {
-            min-width: 0;
+        .card-article {
             display: flex;
             flex: 1 1 300px;
             flex-direction: column;
-            align-items: center;
-            background: var(--color-B);
-            box-shadow: var(--shadow);
-            border-radius: var(--mp);
+
             overflow: hidden;
             min-height: 100%;
 
@@ -206,50 +222,36 @@ main {
     }
 
     .review-pack {
-        width: calc(100% - (var(--mp) * 2));
-        margin: 0 var(--mp);
-        gap: var(--mp);
-        display: flex;
-        flex-direction: row;
-        flex-wrap: wrap;
-        justify-content: center;
+        column-count: auto;
+        column-gap: var(--mp);
+
+        @media (min-width: 768px) {
+            column-count: 2;
+        }
+
+        @media (min-width: 1024px) {
+            column-count: 3;
+        }
 
         .review-article {
-
-            min-width: 0;
-            flex: 1 1 377px;
-            background: var(--color-A);
             padding: var(--np);
-            border-radius: 12px;
-            align-items: flex-start;
 
-            @media (min-width: 768px) {
-                display: grid;
-                grid-template-columns: 55px 1fr;
-                grid-template-rows: max-content auto;
-                gap: 0 var(--np);
-
-            }
+            display: grid;
+            grid-template-columns: 55px 1fr;
+            grid-template-rows: max-content max-content;
+            gap: var(--np);
+            break-inside: avoid;
+            margin-bottom: var(--mp);
 
             .review-avatar {
                 grid-column: 1;
-                grid-row: 1 / span 2;
+                grid-row: 1;
                 flex-shrink: 0;
                 width: 55px;
                 height: 55px;
-                border-radius: 50%;
+                border-radius: 34%;
                 object-fit: cover;
-                border: 3px solid var(--color-E);
-
-                @media (max-width: 768px) {
-                    display: none;
-                    width: 0;
-                    height: 0;
-                }
-            }
-
-            * {
-                text-align: left !important;
+                border: 2px solid var(--color-D);
             }
 
             .review-user {
@@ -260,6 +262,7 @@ main {
 
                 .review-username {
                     font-weight: 610;
+                    color: var(--color-E);
                     margin: 0;
                 }
 
@@ -270,10 +273,13 @@ main {
             }
 
             .review-comment {
-                grid-column: 2;
+                grid-column: 1 / span 2;
                 grid-row: 2;
-                line-height: 1.618;
                 margin: 0;
+            }
+
+            * {
+                text-align: left !important;
             }
         }
     }
@@ -288,7 +294,6 @@ footer {
 
     p {
         margin: var(--mp);
-        text-align: center;
     }
 
     a {
@@ -379,8 +384,9 @@ footer {
     }
 }
 
+/*
 @media (min-width: 768px) {
     .nav-button-label {
-        /* display: inline-block !important;*/
+         display: inline-block !important;
     }
-}
+}*/

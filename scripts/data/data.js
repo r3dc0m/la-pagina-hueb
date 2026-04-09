@@ -26,8 +26,8 @@ export const cards = {
     },
     card06: {
         image: 'assets/images/chickenegg01.jpg',
-        title: 'Ciencia: ¿Qué secretos ocultan los galliformes al estar sentados? En exclusiva, se lo revelaremos a su debido tiempo.',
-        description: 'Y si precisa.'
+        title: 'Ciencia: ¿Qué secretos ocultan los galliformes al estar sentados?',
+        description: 'En exclusiva, se lo revelaremos todo a su debido tiempo. Y si precisa.'
     },
     card07: {
         image: 'assets/images/eggs07.jpg',
@@ -64,8 +64,8 @@ export const reviews = {
     review05: {
         avatar: 'assets/images/profiles/profile_car.jpg',
         username: 'notevoyadecir',
-        rating: '🛆',
-        comment: '"Yo no estoy contenta.\nLlamé y me dijeron que mi responsabilidad es asumir mis propias decisiones.\n¡Os pongo un triángulo porque no deja poner menos, que lo sepáis!"'
+        rating: '▲',
+        comment: '"Yo no estoy contenta. Llamé y me dijeron que mi responsabilidad era asumir mis propias decisiones.\nOs pongo un triángulo porque no deja poner menos"'
     },
     review06: {
         avatar: 'assets/images/profiles/profile_dog_02.jpg',
@@ -83,7 +83,7 @@ export const reviews = {
         avatar: 'assets/images/profiles/profile_swan.jpg',
         username: 'Marta L ego',
         rating: '⬡ ⬡ ⬡ ⬢ ⬢',
-        comment: '"Yo ya sabía que había más cosas más allá de la Hueb. Pero nadie me escuchó, como siempre..."'
+        comment: '"Yo ya sabía que había más cosas más allá de la Hueb. Pero nadie me escuchó, como siempre."'
     },
     review09: {
         avatar: 'assets/images/profiles/profile_gorila.jpg',
@@ -95,13 +95,13 @@ export const reviews = {
         avatar: 'assets/images/profiles/profile_rabbit.jpg',
         username: 'edu paris',
         rating: '● ○ ○ ○ ○',
-        comment: '"Yo no me creo nada de lo que dice esta gente. Las cosas se han hecho así desde siempre. Si muchos expertos lo dicen ¿tendrá que significar algo, no? Para eso estudian. ¿O no?"'
+        comment: '"Yo no me creo nada de lo que dice esta gente. Las cosas se han hecho así desde siempre. Si muchos expertos lo dicen, tendrá que significar algo, ¿no? Para eso estudian. ¿O no?"'
     },
     review11: {
         avatar: 'assets/images/profiles/profile_dog_01.jpg',
         username: 'Amgine',
         rating: '⬟ ⬠ ⬠ ⬠ ⬟',
-        comment: '"¡Me encantan los huebs!"'
+        comment: '"¡Me encanta la Hueb!"'
     },
     review12: {
         avatar: 'assets/images/profiles/profile_cat.jpg',
