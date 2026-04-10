@@ -48,6 +48,7 @@ body {
         border-radius: var(--np);
         cursor: pointer;
         transition: all 0.3s;
+        box-shadow: var(--shadow);
 
         &:hover {
             background: var(--color-A);
@@ -180,7 +181,10 @@ main {
             min-width: 0;
             align-items: center;
             border-radius: var(--mp);
-            p {line-height: 1.618;}
+
+            p {
+                line-height: 1.618;
+            }
         }
     }
 
@@ -276,6 +280,7 @@ main {
                 grid-column: 1 / span 2;
                 grid-row: 2;
                 margin: 0;
+                font-style: italic;
             }
 
             * {

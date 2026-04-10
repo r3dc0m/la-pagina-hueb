@@ -39,9 +39,10 @@ id: task-1775181541770-603bff97
 status: done
 priority: low
 created: 2026-04-03
-due: 
+due: 2026-04-06
 
 REQ: Aesthetics. Depends on styles and content load.
+Fix: Delivered.
 
 ## [FEAT] Add content through file object
 id: task-1775181604659-1ec47ea3
@@ -84,10 +85,10 @@ FIX: styles.css media query hides button label based on class.
 
 ## [CORE] User login
 id: task-1775187701352-becbd6c6
-status: review
+status: done
 priority: medium
 created: 2026-04-03
-due: 
+due: 2026-04-10
 
 REQ: Must include login & register. Depends on: modal, localStorage.
 FIX: authService.js -> handles currentUser and localStorage store data.
@@ -201,7 +202,7 @@ REQ: mermaid charts, scope, feature list.
 
 ## [FEAT] Save cat image link to localStorage
 id: task-1775512945054-c0637dd8
-status: in-progress
+status: review
 priority: low
 created: 2026-04-06
 due: 
@@ -237,12 +238,13 @@ REQ: refactor styles for card and review packs.
 
 ## [BUG] mobile version has a bottom scrollbar
 id: task-1775660053632-716ebfea
-status: in-progress
+status: done
 priority: medium
 created: 2026-04-08
-due: 
+due: 2026-04-09
 
 REQ: Fix
+FIX: Delivered. CSS width % to vw
 
 ## [NAV] Go to last page from localStorage when login in/out?
 id: task-1775665299710-358b0540
@@ -250,12 +252,12 @@ status: todo
 priority: medium
 created: 2026-04-08
 
-## [UI] Adjust page title H2 to card max width
+## [UI] Adjust page title 'p' to card max width
 id: task-1775720233003-6da0ecfb
 status: todo
 priority: low
 created: 2026-04-09
-due:
+due: 
 
 ## [FEAT] Auth message update on no user
 id: task-1775722619892-d8f1f768
@@ -275,6 +277,14 @@ id: task-1775741057080-192c5dca
 status: todo
 priority: medium
 created: 2026-04-09
+due: 
+
+REQ: 
+fullEgg -> friedEgg
+bird -> fullEgg
+basket -> fullEgg?
+potato -> wheelbarrow
+tractor -> carrot
 
 ## [UI] Change account color on status logged in to green?
 id: task-1775741081077-572ae086
@@ -287,4 +297,10 @@ id: task-1775744629006-357cb6f3
 status: todo
 priority: high
 created: 2026-04-09
-due: 
+due:
+
+## [STORAGE] Score system for cats
+id: task-1775772237894-f11676b9
+status: todo
+priority: medium
+created: 2026-04-09
