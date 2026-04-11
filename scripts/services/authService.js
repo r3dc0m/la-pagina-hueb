@@ -1,4 +1,4 @@
-import { USER_PREFIX_KEY, getUser, saveUser, clearCurrentUser, setCurrentUser, createEmptyUserData, mergeSession } from './storageService.js'
+import { USER_PREFIX_KEY, getUser, saveUser, deleteUser, clearCurrentUser, setCurrentUser, createEmptyUserData, mergeSession } from './storageService.js'
 
 export function login(username, password) {
     const user = getUser(username);
@@ -14,7 +14,7 @@ export function register(username, password) {
     const key = USER_PREFIX_KEY + username;
     if (localStorage.getItem(key)) return false;
 
-    const user = { username, password, data: createEmptyUserData() };
+    const user = { username, password, data: createEmptyUserData(), joined: Date.now() };
 
     saveUser(user);
     mergeSession(user);
@@ -24,4 +24,8 @@ export function register(username, password) {
 
 export function logout() {
     clearCurrentUser()
+}
+
+export function remove() {
+    deleteUser()
 }

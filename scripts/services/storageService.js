@@ -14,6 +14,13 @@ export const getUser = (username) => read(USER_PREFIX_KEY + username, null);
 
 export const saveUser = (user) => write(USER_PREFIX_KEY + user.username, user);
 
+export const deleteUser = () => {
+  const username = getCurrentUser();
+  localStorage.removeItem(USER_PREFIX_KEY + username);
+  clearCurrentUser();
+  clearSession();
+};
+
 export const getCurrentUser = () => localStorage.getItem(CURRENT_USER_KEY);
 
 export const setCurrentUser = (username) => localStorage.setItem(CURRENT_USER_KEY, username);
@@ -92,4 +99,12 @@ export const fetchScore = () => {
 
   const session = getSession();
   return `Gatos capturados: ${session.clicksTotal || 0}`;
+}
+
+
+export const fetchJoinedDate = () => {
+  const user = getUser(getCurrentUser());
+  const d = new Date(user.joined);
+  const joined = `${String(d.getDate()).padStart(2, '0')}/${String(d.getMonth() + 1).padStart(2, '0')}/${d.getFullYear()}`;
+  return `Miembro desde:\n${joined}`;
 }

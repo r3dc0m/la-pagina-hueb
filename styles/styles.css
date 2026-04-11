@@ -38,23 +38,37 @@ body {
         margin: 0 var(--np)
     }
 
-    .validate-button {
+    .validate-button,
+    .delete-button {
         padding: var(--mp);
         margin: var(--mp);
-        background: var(--color-C);
-        color: var(--color-F);
         font-weight: 600;
         border: 2px solid var(--color-D);
         border-radius: var(--np);
         cursor: pointer;
         transition: all 0.3s;
         box-shadow: var(--shadow);
+    }
+
+    .validate-button {
+        background: var(--color-C);
+        color: var(--color-F);
 
         &:hover {
             background: var(--color-A);
         }
     }
+
+    .delete-button {
+        background: red;
+        color: var(--color-F);
+
+        &:hover {
+            background: rgb(177, 12, 12);
+        }
+    }
 }
+
 
 header {
     display: flex;
@@ -175,6 +189,7 @@ main {
     display: flex;
     flex-direction: column;
     align-items: center;
+
     .card-pack,
     .review-pack {
         width: calc(100% - (var(--mp) * 2));

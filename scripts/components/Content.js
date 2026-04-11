@@ -1,6 +1,6 @@
 import { build, buildBlock, buildBlockGroup } from './utils.js';
-import { login, register, logout } from '../services/authService.js';
-import { getCurrentUser, getSession, pushSession,fetchScore } from '../services/storageService.js';
+import { login, register, logout, remove } from '../services/authService.js';
+import { getCurrentUser, getSession, pushSession, fetchScore, fetchJoinedDate } from '../services/storageService.js';
 import { Page } from './Page.js';
 import { cards, text, reviews } from '../data/data.js';
 
@@ -54,7 +54,7 @@ export const Pages = {
                     apiContainer.innerHTML = '';
                     build('img', { className: 'api-img', src: url, alt: 'Un gato distinto' }, apiContainer);
                     score.textContent = fetchScore()
-                    
+
                 } catch (error) {
                     apiContainer.innerHTML = `<p>Error: ${error}</p>`;
                 } finally {
@@ -94,14 +94,22 @@ export const Pages = {
             if (currentUser) {
                 const section = build('section', { id: "auth" }, content);
                 build('p', { text: `Estadísticas`, className: "auth-text-bold" }, section);
+                build('p', { text: `${fetchJoinedDate()}`, className: "auth-text" }, section);
                 build('p', { text: `${fetchScore()}`, className: "auth-text" }, section);
-                const p1 = build('p', { text: `No sé quién eres, ${currentUser}.`, className: "auth-text" }, section);
-                const logoutBtn = build('button', { text: 'Desconectar, por favor.', className: "validate-button" }, section);
+                const p1 = build('p', { text: `No sé quién es usted, ${currentUser}.`, className: "auth-text" }, section);
+                const logoutBtn = build('button', { text: 'Desconectar, por favor', className: "validate-button" }, section);
+                const deleteBtn = build('button', { text: 'Eliminar cuenta', className: "delete-button" }, section);
 
                 logoutBtn.addEventListener('click', () => {
                     logout();
                     router.navigate('user');
                 });
+
+                deleteBtn.addEventListener('click', () => {
+                    remove();
+                    router.navigate('user');
+                });
+
             } else {
                 content.innerHTML += `
                 <section id="auth">
