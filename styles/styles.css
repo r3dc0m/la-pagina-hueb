@@ -149,6 +149,12 @@ main {
             }
         }
 
+        .score {
+            padding: var(--mp);
+            border-radius: var(--mp);
+            background-color: var(--color-B);
+            border: 2px solid var(--color-D);
+        }
 
         .bg-media {
             position: fixed;
@@ -169,6 +175,7 @@ main {
     display: flex;
     flex-direction: column;
     align-items: center;
+    gap: var(--mp);
 
     .card-pack,
     .review-pack {
@@ -197,6 +204,10 @@ main {
         flex-direction: column;
         align-items: center;
         background-color: var(--color-A);
+
+        .text-block {
+            max-width: min(987px, calc(100vw - (var(--mp) * 4)));
+        }
     }
 
     .card-pack {
@@ -309,20 +320,23 @@ footer {
 }
 
 
-/* page-specific blocks */
 #auth {
     display: flex;
     flex-direction: column;
     background: var(--color-E);
     box-shadow: var(--shadow);
     border-radius: var(--np);
-    /* aspect-ratio: 7 / 10;
-    border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%; */
 
-    .auth-text {
+    .auth-text,
+    .auth-text-bold {
         margin-top: var(--mp);
         color: var(--color-B);
         text-align: center;
+
+        &.auth-text-bold {
+            font-size: var(--np);
+            font-weight: 600;
+        }
     }
 
     .auth-tabs {
@@ -388,10 +402,3 @@ footer {
         }
     }
 }
-
-/*
-@media (min-width: 768px) {
-    .nav-button-label {
-         display: inline-block !important;
-    }
-}*/

@@ -1,5 +1,5 @@
 import { build, buildIconButton } from './utils.js';
-import { Pages } from '../data/pages.js';
+import { Pages } from './Content.js';
 
 export class NavBar {
     constructor(parent) {

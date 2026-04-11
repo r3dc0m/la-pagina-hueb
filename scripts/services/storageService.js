@@ -35,11 +35,12 @@ export const setSession = (session) => write(SESSION_DATA_KEY, session);
 export const pushSession = (url, format = 'unknown') => {
   const username = getCurrentUser();
   const session = getSession();
+  session.activeImage = url;
+
   if (username) {
     const user = getUser(username);
     if (user) {
       user.data ??= createEmptyUserData();
-      session.activeImage = url;
       user.data.images.push({ url, format, ts: Date.now() });
       user.data.clicksTotal += 1;
       user.data.formats[format] = (user.data.formats[format] || 0) + 1;
@@ -49,7 +50,6 @@ export const pushSession = (url, format = 'unknown') => {
     return
   }
 
-  session.activeImage = url;
   session.images.push({ url, format, ts: Date.now() });
   session.clicksTotal += 1;
   session.formats[format] = (session.formats[format] || 0) + 1;
@@ -78,4 +78,18 @@ export const mergeSession = (user) => {
   clearSession();
   saveUser(user);
   return user;
+}
+
+export const fetchScore = () => {
+  const username = getCurrentUser();
+
+  if (username) {
+    const user = getUser(username);
+    if (user) {
+      return `Gatos capturados: ${user.data.clicksTotal || 0}`;
+    }
+  }
+
+  const session = getSession();
+  return `Gatos capturados: ${session.clicksTotal || 0}`;
 }

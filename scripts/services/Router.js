@@ -1,4 +1,4 @@
-import { Pages } from '../data/pages.js';
+import { Pages } from '../components/Content.js';
 
 export class Router {
     constructor(nav, content) {

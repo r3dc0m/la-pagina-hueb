@@ -113,7 +113,7 @@ export const reviews = {
 
 export const text = {
     home: {
-        text: 'Bienvenido a la página Hueb, donde sólo puede haber una y no dos\nAquí encontrará toda la información que necesita en el día a día sobre la Hueb: de dónde viene, a dónde va, por qué está ahí y muchas otras cuestiones a las que nunca encontró respuesta, hasta que sí'
+        text: 'Bienvenido a la página Hueb, donde sólo puede haber una y no dos. Aquí encontrará toda la información que necesita en el día a día sobre la Hueb: de dónde viene, a dónde va, por qué está ahí y muchas otras cuestiones a las que nunca encontró respuesta, hasta que sí'
     },
     modA: {
         text: 'Uno no sabe qué puede pasar a lo largo de una Hueb. Hoy está aquí y mañana no se sabe'

@@ -1,7 +1,7 @@
-import { build, buildBlock, buildBlockGroup } from '../components/utils.js';
+import { build, buildBlock, buildBlockGroup } from './utils.js';
 import { login, register, logout } from '../services/authService.js';
-import { getCurrentUser, getSession, pushSession } from '../services/storageService.js';
-import { Page } from '../components/Page.js';
+import { getCurrentUser, getSession, pushSession,fetchScore } from '../services/storageService.js';
+import { Page } from './Page.js';
 import { cards, text, reviews } from '../data/data.js';
 
 export const Pages = {
@@ -33,7 +33,9 @@ export const Pages = {
             buildBlock('text', { title: page.title, text: text[router.currentRoute]?.text || '' }, content);
             const apiContainer = build('div', { className: 'api-img api-loading' }, content);
             const catButton = build('button', { className: 'validate-button', text: 'Capturar felino' }, content);
+            const score = build('p', { text: fetchScore(), className: "score" }, content);
             const session = getSession();
+
             if (session.activeImage) {
                 apiContainer.innerHTML = '';
                 build('img', { className: 'api-img', src: session.activeImage, alt: 'Un gato distinto' }, apiContainer);
@@ -49,10 +51,10 @@ export const Pages = {
                     const url = data[0].url;
                     const format = url.split('.').pop().split('?')[0].toLowerCase();
                     pushSession(url, format);
-
                     apiContainer.innerHTML = '';
                     build('img', { className: 'api-img', src: url, alt: 'Un gato distinto' }, apiContainer);
-
+                    score.textContent = fetchScore()
+                    
                 } catch (error) {
                     apiContainer.innerHTML = `<p>Error: ${error}</p>`;
                 } finally {
@@ -90,12 +92,12 @@ export const Pages = {
             buildBlock('text', { title: page.title, text: text[router.currentRoute]?.text || '' }, content);
             const currentUser = getCurrentUser();
             if (currentUser) {
-                content.innerHTML += `
-                <section id="auth">
-                    <p class="auth-text">No sé quién eres, ${currentUser}.</p>
-                    <button class="validate-button">Desconectar, por favor.</button>
-                </section>`;
-                const logoutBtn = content.querySelector('.validate-button');
+                const section = build('section', { id: "auth" }, content);
+                build('p', { text: `Estadísticas`, className: "auth-text-bold" }, section);
+                build('p', { text: `${fetchScore()}`, className: "auth-text" }, section);
+                const p1 = build('p', { text: `No sé quién eres, ${currentUser}.`, className: "auth-text" }, section);
+                const logoutBtn = build('button', { text: 'Desconectar, por favor.', className: "validate-button" }, section);
+
                 logoutBtn.addEventListener('click', () => {
                     logout();
                     router.navigate('user');
