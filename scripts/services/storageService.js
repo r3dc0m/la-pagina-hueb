@@ -5,7 +5,7 @@ const EMPTY_USER_DATA = { activeImage: null, images: [], clicksTotal: 0, formats
 
 const read = (key, fallback = null) => {
   const value = localStorage.getItem(key);
-  return value ? JSON.parse(value) : fallback;
+  return value !== null ? JSON.parse(value) : fallback;
 };
 
 const write = (key, value) => localStorage.setItem(key, JSON.stringify(value));
@@ -18,22 +18,64 @@ export const getCurrentUser = () => localStorage.getItem(CURRENT_USER_KEY);
 
 export const setCurrentUser = (username) => localStorage.setItem(CURRENT_USER_KEY, username);
 
-export const clearCurrentUser = ()  => localStorage.removeItem(CURRENT_USER_KEY);
+export const clearCurrentUser = () => {
+  clearSession();
+  localStorage.removeItem(CURRENT_USER_KEY)
+};
 
-export const createEmptyUserData = () => ({ ...EMPTY_USER_DATA });
+export const createEmptyUserData = () => {
+  const { activeImage, ...rest } = EMPTY_USER_DATA;
+  return rest;
+};
 
 export const getSession = () => read(SESSION_DATA_KEY, { ...EMPTY_USER_DATA });
 
-export const pushSession = (session) => write(SESSION_DATA_KEY, session);
+export const setSession = (session) => write(SESSION_DATA_KEY, session);
 
-export function setSession(url, format = 'unknown') {
-    const session = getSession();
+export const pushSession = (url, format = 'unknown') => {
+  const username = getCurrentUser();
+  const session = getSession();
+  if (username) {
+    const user = getUser(username);
+    if (user) {
+      user.data ??= createEmptyUserData();
+      session.activeImage = url;
+      user.data.images.push({ url, format, ts: Date.now() });
+      user.data.clicksTotal += 1;
+      user.data.formats[format] = (user.data.formats[format] || 0) + 1;
+      setSession(session);
+      saveUser(user);
+    }
+    return
+  }
 
-    session.activeImage = url;
-    session.images.push({ url, format, ts: Date.now() });
+  session.activeImage = url;
+  session.images.push({ url, format, ts: Date.now() });
+  session.clicksTotal += 1;
+  session.formats[format] = (session.formats[format] || 0) + 1;
+  setSession(session);
+};
 
-    session.formats[format] = (session.formats[format] || 0) + 1;
-    pushSession(session);
+export const clearSession = () => {
+  const { activeImage } = getSession();
+  setSession({
+    activeImage, images: [], clicksTotal: 0, formats: {}
+  });
+};
 
-    return session;
+export const mergeSession = (user) => {
+  const session = getSession();
+
+  user.data ??= createEmptyUserData();
+
+  user.data.images = [...(user.data.images || []), ...session.images];
+  user.data.clicksTotal = (user.data.clicksTotal || 0) + session.clicksTotal;
+
+  for (const [format, count] of Object.entries(session.formats || {})) {
+    user.data.formats[format] = (user.data.formats[format] || 0) + count;
+  }
+
+  clearSession();
+  saveUser(user);
+  return user;
 }

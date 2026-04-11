@@ -1,6 +1,6 @@
 import { build, buildBlock, buildBlockGroup } from '../components/utils.js';
 import { login, register, logout } from '../services/authService.js';
-import { getCurrentUser, getSession, setSession } from '../services/storageService.js';
+import { getCurrentUser, getSession, pushSession } from '../services/storageService.js';
 import { Page } from '../components/Page.js';
 import { cards, text, reviews } from '../data/data.js';
 
@@ -48,17 +48,17 @@ export const Pages = {
 
                     const url = data[0].url;
                     const format = url.split('.').pop().split('?')[0].toLowerCase();
+                    pushSession(url, format);
 
                     apiContainer.innerHTML = '';
                     build('img', { className: 'api-img', src: url, alt: 'Un gato distinto' }, apiContainer);
-                    setSession(url, format);
 
                 } catch (error) {
                     apiContainer.innerHTML = `<p>Error: ${error}</p>`;
                 } finally {
                     catButton.disabled = false;
                 }
-            }
+            };
             catButton.addEventListener('click', loadCat);
         }
     }),
@@ -145,7 +145,7 @@ export const Pages = {
 
                     if (ok) {
                         status.textContent = `Usuario ${username.value} ${mode === 'login' ? 'conectado' : 'creado'}`;
-                        (router && router.navigate) && setTimeout(() => router.navigate('home'), 987);
+                        (router && router.navigate) && setTimeout(() => router.navigate('user'), 987);
                     } else {
                         status.textContent = mode === 'login' ? 'Credenciales incorrectas' : 'Usuario ya existe';
                     }
