@@ -13,9 +13,9 @@ export default class DOMmanager {
 
     createLayout() {
         this.header = build('header', {}, this.body);
-        
+
         this.h1 = build('h1', { text: 'La página Hueb', className: 'title' }, this.header);
-        
+
         this.navBar = build('nav', { className: 'nav-bar' }, this.header);
         new NavBar(this.navBar);
 
@@ -29,12 +29,12 @@ export default class DOMmanager {
         }, this.footer);
     }
 
-    preloadAssets() { 
+    preloadAssets() {
         Object.values(Pages).forEach(page => {
             if (page.background?.src) {
                 const img = new Image();
                 img.src = page.background.src;
-                
+
                 if (page.background.type === 'video') {
                     const video = document.createElement('video');
                     video.src = page.background.src;

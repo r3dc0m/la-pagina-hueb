@@ -4,90 +4,97 @@ import { getCurrentUser, fetchScore, fetchJoinedDate } from '../../services/stor
 
 export function renderUserPage(content, router) {
     const section = build('section', { id: "auth" }, content);
-    const currentUser = getCurrentUser();
+    
+    const views = {
+        loggedIn: () => loggedIn(section, router),
+        loggedOut: () => loggedOut(section, router)
+    };
 
-    if (currentUser) {
-        const statsConfig = [
-            { text: 'Estadísticas', className: 'auth-text-bold' },
-            { text: `${fetchJoinedDate()}`, className: 'auth-text' },
-            { text: `${fetchScore()}`, className: 'auth-text' },
-            { text: `No sé quién es usted, ${currentUser}.`, className: 'auth-text' }
-        ];
+    views[!!getCurrentUser() ? 'loggedIn' : 'loggedOut']();
+}
 
-        statsConfig.forEach(({ text, className }) => {
-            build('p', { text, className }, section);
-        });
+function loggedIn(section, router) {
+    const statsConfig = [
+        { text: 'Estadísticas', className: 'auth-text-bold' },
+        { text: `${fetchJoinedDate()}`, className: 'auth-text' },
+        { text: `${fetchScore()}`, className: 'auth-text' },
+        { text: `No sé quién es usted, ${getCurrentUser()}.`, className: 'auth-text' }
+    ];
 
-        const logoutBtn = build('button', { text: 'Desconectar, por favor', className: "validate-button" }, section);
-        const deleteBtn = build('button', { text: 'Eliminar cuenta ya', className: "delete-button" }, section);
+    statsConfig.forEach(({ text, className }) => {
+        build('p', { text, className }, section);
+    });
 
-        logoutBtn.addEventListener('click', () => {
-            logout();
-            router.navigate('user');
-        });
+    const logoutBtn = build('button', { text: 'Desconectar, por favor', className: "validate-button" }, section);
+    const deleteBtn = build('button', { text: 'Eliminar cuenta ya', className: "delete-button" }, section);
 
-        deleteBtn.addEventListener('click', () => {
-            remove();
-            router.navigate('user');
-        });
+    logoutBtn.addEventListener('click', () => {
+        logout();
+        router.navigate('user');
+    });
 
-    } else {
-        const tabConfig = [
-            { 'data-mode': 'login', text: 'Iniciar sesión', active: true },
-            { 'data-mode': 'register', text: 'Crear cuenta', active: false }
-        ];
+    deleteBtn.addEventListener('click', () => {
+        remove();
+        router.navigate('user');
+    });
+}
 
-        const tabs = build('div', { className: 'auth-tabs' }, section);
-        tabConfig.forEach(({ 'data-mode': mode, text, active }) => {
-            build('button', { attrs: { 'data-mode': mode, type: 'button' }, text, className: `auth-tab ${active ? 'active' : ''}` }, tabs);
-        });
+function loggedOut(section, router) {
+    const tabConfig = [
+        { 'data-mode': 'login', text: 'Iniciar sesión', active: true },
+        { 'data-mode': 'register', text: 'Crear cuenta', active: false }
+    ];
 
-        const form = build('form', { id: 'auth-form', className: 'login-mode' }, section);
+    const tabs = build('div', { className: 'auth-tabs' }, section);
+    tabConfig.forEach(({ 'data-mode': mode, text, active }) => {
+        build('button', { attrs: { 'data-mode': mode, type: 'button' }, text, className: `auth-tab ${active ? 'active' : ''}` }, tabs);
+    });
 
-        const fieldConfig = [
-            { type: 'text', id: 'username', placeholder: 'Usuario' },
-            { type: 'password', id: 'password', placeholder: 'Contraseña' }
-        ];
+    const form = build('form', { id: 'auth-form', className: 'login-mode' }, section);
 
-        fieldConfig.forEach(({ type, id, placeholder }) => {
-            build('input', {
-                attrs: { type, id, placeholder, required: true, autocomplete: 'off' }
-            }, form);
-        });
+    const fieldConfig = [
+        { type: 'text', id: 'username', placeholder: 'Usuario' },
+        { type: 'password', id: 'password', placeholder: 'Contraseña' }
+    ];
 
-        build('p', { className: 'auth-text' }, form);
-        const submit = build('button', { attrs: { type: 'submit' }, text: 'Entrar', className: 'validate-button' }, form);
+    fieldConfig.forEach(({ type, id, placeholder }) => {
+        build('input', {
+            attrs: { type, id, placeholder, required: true, autocomplete: 'off' }
+        }, form);
+    });
 
-        const username = section.querySelector('#username');
-        const password = section.querySelector('#password');
-        const status = section.querySelector('.auth-text');
-        const tabButtons = section.querySelectorAll('.auth-tab');
+    build('p', { className: 'auth-text' }, form);
+    const submit = build('button', { attrs: { type: 'submit' }, text: 'Entrar', className: 'validate-button' }, form);
 
-        const switchMode = (mode) => {
-            form.classList.toggle('login-mode', mode === 'login');
-            form.classList.toggle('register-mode', mode === 'register');
-            submit.textContent = mode === 'login' ? 'Entrar' : 'Crear cuenta';
+    const username = section.querySelector('#username');
+    const password = section.querySelector('#password');
+    const status = section.querySelector('.auth-text');
+    const tabButtons = section.querySelectorAll('.auth-tab');
 
-            tabButtons.forEach(tab => tab.classList.toggle('active', tab.dataset.mode === mode));
-        };
+    const switchMode = (mode) => {
+        form.classList.toggle('login-mode', mode === 'login');
+        form.classList.toggle('register-mode', mode === 'register');
+        submit.textContent = mode === 'login' ? 'Entrar' : 'Crear cuenta';
 
-        const handleSubmit = (e) => {
-            e.preventDefault();
-            const mode = form.classList.contains('register-mode') ? 'register' : 'login';
-            const ok = mode === 'login'
-                ? login(username.value, password.value)
-                : register(username.value, password.value);
+        tabButtons.forEach(tab => tab.classList.toggle('active', tab.dataset.mode === mode));
+    };
 
-            status.textContent = ok
-                ? `Usuario ${username.value} ${mode === 'login' ? 'conectado' : 'creado'}`
-                : (mode === 'login' ? 'Credenciales incorrectas' : 'Usuario ya existe');
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        const mode = form.classList.contains('register-mode') ? 'register' : 'login';
+        const ok = mode === 'login'
+            ? login(username.value, password.value)
+            : register(username.value, password.value);
 
-            if (ok && router?.navigate) {
-                setTimeout(() => router.navigate('user'), 987);
-            }
-        };
+        status.textContent = ok
+            ? `Usuario ${username.value} ${mode === 'login' ? 'conectado' : 'creado'}`
+            : (mode === 'login' ? 'Credenciales incorrectas' : 'Usuario ya existe');
 
-        tabButtons.forEach(tab => tab.addEventListener('click', () => switchMode(tab.dataset.mode)));
-        form.addEventListener('submit', handleSubmit);
-    }
+        if (ok && router?.navigate) {
+            setTimeout(() => router.navigate('user'), 987);
+        }
+    };
+
+    tabButtons.forEach(tab => tab.addEventListener('click', () => switchMode(tab.dataset.mode)));
+    form.addEventListener('submit', handleSubmit);
 }
