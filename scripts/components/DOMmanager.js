@@ -1,11 +1,13 @@
 import { build } from './utils.js';
 import { NavBar } from './NavBar.js';
 import { Router } from '../services/Router.js';
+import { Pages } from './Content.js';
 
 export default class DOMmanager {
     constructor() {
         this.body = document.body;
         this.createLayout();
+        this.preloadAssets();
         this.setupRouter();
     }
 
@@ -17,7 +19,6 @@ export default class DOMmanager {
         this.navBar = build('nav', { className: 'nav-bar' }, this.header);
         new NavBar(this.navBar);
 
-
         this.main = build('main', { className: 'main' }, this.body);
         this.content = build('div', { className: 'content' }, this.main);
 
@@ -26,6 +27,21 @@ export default class DOMmanager {
             text: 'La página Hueb © 2026. Contenido libre de derechos. Multimedia: pixabay.com',
             className: 'footer-text'
         }, this.footer);
+    }
+
+    preloadAssets() { 
+        Object.values(Pages).forEach(page => {
+            if (page.background?.src) {
+                const img = new Image();
+                img.src = page.background.src;
+                
+                if (page.background.type === 'video') {
+                    const video = document.createElement('video');
+                    video.src = page.background.src;
+                    video.preload = 'metadata';
+                }
+            }
+        });
     }
 
     setupRouter() {
