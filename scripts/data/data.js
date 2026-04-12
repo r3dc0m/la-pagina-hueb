@@ -93,7 +93,7 @@ export const reviews = {
     },
     review10: {
         avatar: 'assets/images/profiles/profile_rabbit.jpg',
-        username: 'edu paris',
+        username: 'NATANAEL',
         rating: '● ○ ○ ○ ○',
         comment: '"Yo no me creo nada de lo que dice esta gente. Las cosas se han hecho así desde siempre. Si muchos expertos lo dicen, tendrá que significar algo, ¿no? Para eso estudian. ¿O no?"'
     },
@@ -113,26 +113,26 @@ export const reviews = {
 
 export const text = {
     home: {
-        text: 'Bienvenido a la página Hueb, donde sólo puede haber una y no dos. Aquí encontrará toda la información que necesita en el día a día sobre la Hueb: de dónde viene, a dónde va, por qué está ahí y muchas otras cuestiones a las que nunca encontró respuesta, hasta que sí'
+        text: 'Bienvenido a la página Hueb, donde sólo puede haber una y no dos. Aquí encontrará toda la información que necesita en el día a día sobre la Hueb: de dónde viene, a dónde va, por qué está ahí y muchas otras cuestiones a las que nunca encontró respuesta, hasta que sí.'
     },
     modA: {
-        text: 'Uno no sabe qué puede pasar a lo largo de una Hueb. Hoy está aquí y mañana no se sabe'
+        text: 'Uno no sabe qué puede pasar a lo largo de una Hueb. Hoy está aquí y mañana no se sabe.'
     },
     modB: {
-        text: 'Desde tiempos desconocidos, hemos utilizado la Hueb para pretender que eran tiempos conocidos'
+        text: 'Desde tiempos desconocidos, hemos utilizado la Hueb para pretender que eran tiempos conocidos.'
     },
     modC: {
-        text: 'Con tantas preguntas pendientes, ¿en qué podemos refugiarnos? Sin duda tendemos a optar por lo fácil y que nos permite no cuestionar nada. Pero, ¿nos conviene?'
+        text: 'Con tantas preguntas pendientes, ¿en qué podemos refugiarnos? Sin duda tendemos a optar por lo fácil y que nos permite no cuestionar nada. Pero, ¿nos conviene?.'
     },
     modD: {
-        text: 'El evento único que nadie sabe explicar'
+        text: 'El evento único que nadie sabe explicar.'
     },
     user: {
-        text: 'Inicie sesión o cree una cuenta para no ser un extraño'
+        text: 'Inicie sesión o cree una cuenta para no ser un extraño.'
     },
     dummytext: {
         title: 'My header hurts right now',
-        text: 'There is a very good description of it'
+        text: 'There is a very good description of it.'
     }
 }
 
