@@ -115,7 +115,7 @@ due: 2026-04-03
 REQ: Loop case for button creation. Perhaps adapt buttons per number of pages within class later on.
 FIX: navBuilder builds 3 side arrays and depends on icons.js.
 
-## [FEAT] <a href> for some random button
+## [FEAT] (a href) for some random button
 id: task-1775218474616-dbea7095
 status: todo
 priority: low

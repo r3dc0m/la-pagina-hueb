@@ -111,6 +111,7 @@ src/
 - 🔄 Refactor SOLID
 - 🔄 Documentación
 - 🔄 Entitulado de navegación en mouse hover para escritorio
+- 🔄 Adaptación del tamaño de los assets para mejor rendimiento
 
 **Posibles integraciones**
 - 🔄 Visualizador de colección en 'Usuario'

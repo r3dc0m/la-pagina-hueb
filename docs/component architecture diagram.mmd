@@ -1,45 +1,68 @@
 graph TB
-    subgraph 'DATA'
-        Icons[icons.js]
-        Cards[cards.js]
-        Reviews[reviews.js]
+    subgraph "DATA & UTILS"
+        DataJS[data.js<br/>cards, reviews, text, icons]
+        Utils[utils.js<br/>build, buildBlock, createSvgIcon, buildIconButton]
     end
-    
-    subgraph 'SERVICES'
-        Auth[authService.js<br/>localStorage]
+
+    subgraph "SERVICES"
+        Storage[storageService.js<br/>getUser, saveUser, getSession, pushSession, mergeSession, fetchScore]
+        Auth[authService.js<br/>login, register, logout, remove]
     end
-    
-    subgraph 'COMPONENTS'
-        DOMmgr[DOMmanager<br/>createLayout setupRouter]
-        NavBar[NavBar<br/>buildIconButton]
-        Page[Page<br/>render fn]
+
+    subgraph "CORE"
+        App[App.js<br/>instancia de DOMmanager]
+        Router[Router.js<br/>init y navigate]
     end
-    
-    App[App.js<br/>new DOMmanager] 
-    
+
+    subgraph "COMPONENTS"
+        DOMmgr[DOMmanager.js<br/>createLayout, preloadAssets, setupRouter]
+        NavBar[NavBar.js<br/>createBlocks, createButtons]
+        Page[Page.js<br/>render y createBackground]
+    end
+
+    subgraph "PAGES"
+        Pages[Content.js<br/>Pages registry]
+        CatPage[CatPage.js<br/>renderCatPage]
+        UserPage[UserPage.js<br/>renderUserPage, loggedIn, loggedOut]
+    end
+
+    subgraph "EXTERNAL API"
+        CatAPI[TheCatAPI<br/>v1 images search]
+    end
+
     App --> DOMmgr
-    DOMmgr -..-> Layout[(Layout DOM<br/>header nav main<br/>content footer)]
-    DOMmgr -....-> R1[Router<br/>new Router nav content]
-    
-    R1 -..->|navigate route| Pages[Pages<br/>new Page x6]
-    R1 -.->|clicks| NavBar
-    
-    NavBar -..->|data-route| R1
-    
+    DOMmgr --> NavBar
+    DOMmgr --> Router
+    DOMmgr --> Pages
+    DOMmgr --> Layout[Layout DOM<br/>header, nav, main, footer]
+
+    Router --> Pages
+    Router --> NavBar
+    NavBar --> Router
+
     Pages --> Page
-    
-    Page --> B1[bg-media<br/>video/img]
-    Page --> PC[section.page-content]
-    Page -->|fn| PF[Page.fn<br/>content.innerHTML]
-    
+    Pages --> CatPage
+    Pages --> UserPage
+
+    Page --> BG[bg-media<br/>video o imagen]
+    Page ---> PC[section.page-content]
+    Page ---> PF[Page.fn renderContent]
+
+    CatPage --> PF
+    UserPage --> PF
+
+    PF --> Storage
     PF --> Auth
-    PF -.->|fetch| CatAPI[TheCatAPI]
-    
-    Utils[utils.js<br/>build<br/>createSvgIcon] --> Layout
+    Auth --> Storage
+    Storage --> Browser[localStorage]
+
+    CatPage --> CatAPI
+
+    Utils --> DOMmgr
     Utils --> NavBar
     Utils --> Page
-    Utils --> PF
-    
-    Icons --> Utils
-    Cards -.-> PF
-    Reviews -.-> PF
+    Utils --> CatPage
+    Utils --> UserPage
+
+    DataJS --> Utils
+    DataJS --> Pages
