@@ -2,7 +2,7 @@
 
 ![Hueb](assets/images/egg01.jpg)
 
-Un proyecto web minimalista que explora cuestiones filosóficas, existenciales y del día a día a través de huevos, gatos y otras reflexiones profundas.
+Un proyecto web minimalista que explora cuestiones filosóficas, existenciales y del día a día a través de huevos, gatos y otras reflexiones profundas
 
 ## Características
 
@@ -34,7 +34,6 @@ Herramientas:
 
 ### Requisitos
 - Navegador moderno (Chrome, Firefox, Safari, Edge)
-- Servidor local con node.js para prevenir CORS.
 
 ### Instrucciones
 
@@ -44,7 +43,7 @@ git clone https://github.com/r3dc0m/la-pagina-hueb.git
 cd la-pagina-hueb
 ```
 
-**⚠️ Importante**: Abrir directamente el archivo HTML (`file://`) **bloqueará** las peticiones fetch por CORS. Se requiere de un servidor local (node.js) para ejecutar el código.
+**⚠️ Importante**: Abrir directamente el archivo HTML (`file://`) **bloqueará** las peticiones fetch por CORS. Se requiere de un servidor local (node.js) para ejecutar el código
 
 Opción 2: Acceder a través de github pages
 https://r3dc0m.github.io/la-pagina-hueb/
@@ -120,9 +119,9 @@ src/
 
 ## Licencia
 
-Contenido libre de derechos. Multimedia: [pixabay.com](https://pixabay.com).  
+Contenido libre de derechos. Multimedia: [pixabay.com](https://pixabay.com)
 
-Código: MIT License © 2026.
+Código: MIT License © 2026
 
 Contribuidor: [jonathan](https://github.com/r3dc0m)
 

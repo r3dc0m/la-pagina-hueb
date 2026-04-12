@@ -136,7 +136,7 @@ Se puede acceder a las tareas [aquí](changelog/.tasks/tasks-2026.md).
 - Validaciones robustas y modelos de usuario independientes.
 
 ### 4.3 Pruebas
-- El flujo de pruebas utilizado para comprobar la funcionalidad y la persistencia de la sesión se realizó a partir del `inspector tools` del navegador `Chromium` en la pestaña `Console` o `Application` para visualizar claves locales existentes en el `localStorage`.
+- El flujo de pruebas utilizado para comprobar la funcionalidad y la persistencia de la sesión se realizó a partir del `Inspector tools` del navegador `Chromium` en la pestaña `Console` o `Application` para visualizar errores, resultados o monitorizar claves locales existentes en el `localStorage`.
 
 #### Test 1
 1. `user` Click sobre el botón de desconexión
@@ -170,18 +170,19 @@ Se puede acceder a las tareas [aquí](changelog/.tasks/tasks-2026.md).
 
 #### Test 5
 1. `user` Hacer click sobre el botón de eliminar cuenta
-    - comprobar que tanto `currentUser` como `huebUser:user` se eliminan.
+    - Comprobar que tanto `currentUser` como `huebUser:user` se eliminan.
+    - Comprobar limpieza de datos exceptuando `activeImage` en la clave `currentSession`.
 
 #### Test 6
 1. `user` Crear varios usuarios con distintas estadísticas. 
     - Estando registrado, hacer click sobre el botón de eliminar cuenta y comprobar que tanto `currentUser` como la clave relacionada en `huebUser:user` se eliminan.
+    - Comprobar limpieza de datos exceptuando `activeImage` en la clave `currentSession`.
 
 
 ### 4.4 Conclusiones
 
-Ha sido una experiencia entretenida dado el tiempo que se pudo utilizar. Tanto la documentación como parte del código ha requerido el apoyo de LLMs para sugerir ideas o corrección de bloques, como por ejemplo en `UserPage.js` hacia el final del proyecto para un refactor indispensable, ya que el bloque anterior no cumplía requerimientos SOLID de manera evidente al ser un condicional de muchas lineas. La LLM también fue muy útil para las plantillas de generación de documentación, su organización y fraseado inicial, incluyendo la elaboración de un README.md más completo.
+Ha sido una experiencia entretenida dado el tiempo que se pudo utilizar. Tanto la documentación como parte del código ha requerido el apoyo de LLMs para sugerir ideas o corrección de bloques, como por ejemplo en `UserPage.js` hacia el final del proyecto para un refactor indispensable, ya que el bloque anterior no cumplía requerimientos SOLID de manera evidente al ser un condicional de muchas lineas. La LLM también fue muy útil para las plantillas de generación de documentación, su organización y fraseado inicial, incluyendo la elaboración de un README.md más completo y diagramas de flujos.
 
 ***
 
 jonathan
-
