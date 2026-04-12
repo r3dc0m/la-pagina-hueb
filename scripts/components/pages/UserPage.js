@@ -1,4 +1,4 @@
-import { build } from '../utils.js';
+import { build } from '../../data/utils.js';
 import { login, register, logout, remove } from '../../services/authService.js';
 import { getCurrentUser, fetchScore, fetchJoinedDate } from '../../services/storageService.js';
 

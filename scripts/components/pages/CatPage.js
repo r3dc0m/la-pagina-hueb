@@ -1,4 +1,4 @@
-import { build } from '../utils.js';
+import { build } from '../../data/utils.js';
 import { getSession, pushSession, fetchScore } from '../../services/storageService.js';
 
 export function renderCatPage(content) {

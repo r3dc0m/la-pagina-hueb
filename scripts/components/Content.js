@@ -1,4 +1,4 @@
-import { buildBlock, buildBlockGroup } from './utils.js';
+import { buildBlock, buildBlockGroup } from '../data/utils.js';
 import { Page } from './Page.js';
 import { renderCatPage } from './pages/CatPage.js';
 import { renderUserPage } from './pages/UserPage.js';

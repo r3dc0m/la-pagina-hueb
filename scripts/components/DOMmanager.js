@@ -1,7 +1,7 @@
-import { build } from './utils.js';
+import { build } from '../data/utils.js';
 import { NavBar } from './NavBar.js';
-import { Router } from '../services/Router.js';
 import { Pages } from './Content.js';
+import { Router } from '../core/Router.js';
 
 export default class DOMmanager {
     constructor() {

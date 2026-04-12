@@ -1,4 +1,4 @@
-import { build } from '../components/utils.js';
+import { build } from '../data/utils.js';
 
 export class Page {
     constructor({ title, icon, block, background = null, fn }) {

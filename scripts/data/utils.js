@@ -1,4 +1,4 @@
-import { icons } from '../data/data.js';
+import { icons } from './data.js';
 
 export function build(tag, options = {}, parent) {
     const { text = null, id = null, className = null, attrs = {}, src, alt } = options;

@@ -1,4 +1,4 @@
-import { build, buildIconButton } from './utils.js';
+import { build, buildIconButton } from '../data/utils.js';
 import { Pages } from './Content.js';
 
 export class NavBar {
