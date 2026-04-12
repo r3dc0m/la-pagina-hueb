@@ -12,7 +12,7 @@ Un proyecto web minimalista que explora cuestiones filosóficas, existenciales y
 - Estadísticas de usuario (gatos capturados, fecha de unión, y potencialmente visualizador de colección o estadísticas de formatos)
 - Backgrounds multimedia (videos e imágenes precargados)
 - Renderizado modular con componentes reutilizables
-- Se adapta a móvil y adopta los temas claro/obscuro del dispositivo
+- Se adapta a móvil y adopta los temas claro/oscuro del dispositivo
 
 ## Tecnologías
 ```bash
